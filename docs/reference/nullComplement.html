@@ -126,7 +126,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>m</th>
-      <td><p>NA or a matrix whose columns define the subspace, see Details.</p></td>
+      <td><p>NA or a matrix whose columns define the subspace, a vector is
+    treated as a matrix with one column.</p></td>
     </tr>
     <tr>
       <th>universe</th>
@@ -143,14 +144,17 @@
 
     
 
+<p><code>null_complement</code> computes the orthogonal complement of a
+  subspace (spanned by the columns of <code>m</code>) relative to a universe.</p>
 <p>Argument <code>universe</code> can be used to specify a subspace w.r.t.
-  which to compute the complement.  If <code>universe</code> is <code>NULL</code>, a
-  complement w.r.t. this full space is computed. The full space is
-  deduced from the dimension of <code>m</code>.</p>
+  which to compute the complement.  If <code>universe</code> is <code>NULL</code>
+  (the default), the complement w.r.t. the full space is computed. The
+  full space is the \(n\)-dimensional space, where \(n\) is the
+  number of rows of argument <code>m</code>.</p>
 <p><code>null_complement</code> returns a matrix whose columns give a basis of
   the required subspace.</p>
 <p><code>null_complement</code> uses <code>Null()</code> from package MASS for the
-  actual computation. <code>null_complement(m, na.allow=FALSE)</code> is
+  actual computation. <code>null_complement(m, na.allow = FALSE)</code> is
   equivalent to <code>Null(m)</code>.</p>
 <p><code>m</code> is typically a matrix whose columns represent the subspace
   w.r.t. which to compute the complement.
@@ -159,15 +163,11 @@
 <p>If <code>na.allow = TRUE</code>, the default, and <code>m</code> is identical to
   <code>NA</code>, <code>universe</code> is returned (i.e. <code>m = NA</code> represents
   the empty subspace). Note that in this case <code>universe</code> cannot be
-  NULL, since there is no way to determine the dimension of the space.</p>
-<p>Otherwise, <code>m</code> is a matrix. If all elements of <code>m</code> are NA, a
-  matrix of NA's is returned with number of columns equal to
-  <code>ncol(universe) - ncol(m)</code>.</p>
-<p><strong>TODO:</strong>
-  Currently, if <code>m</code> contains a mixture of numbers and NA's, the
-  result is the same as when all entries of <code>m</code> are NA's. A
-  complete implementation should handle this case better. However, in
-  general, the result cannot be  a simple matrix.</p>
+  NULL, since there is no way to determine the dimension of the full
+  space.</p>
+<p>Otherwise, <code>m</code> is a matrix. If all elements of <code>m</code> are
+  <code>NA</code>, a matrix of NA's is returned with number of columns equal
+  to <code>ncol(universe) - ncol(m)</code>.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a matrix representing a basis of the requested subspace</p>
@@ -184,7 +184,19 @@
 #&gt; [3,]  0.0000000    1</div><div class='input'><span class='fu'>null_complement</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>), <span class='no'>m1</span>)</div><div class='output co'>#&gt;            [,1]
 #&gt; [1,]  0.7071068
 #&gt; [2,] -0.7071068
-#&gt; [3,]  0.0000000</div></pre>
+#&gt; [3,]  0.0000000</div><div class='input'>
+<span class='co'>## the columns of the result from null_complement() are orthogonal</span>
+<span class='co'>## to  the 1st argument:</span>
+<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>)) <span class='kw'>%*%</span> <span class='fu'>null_complement</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>))</div><div class='output co'>#&gt;              [,1] [,2]
+#&gt; [1,] 1.110223e-16    0</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>)) <span class='kw'>%*%</span> <span class='fu'>null_complement</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>), <span class='no'>m1</span>)</div><div class='output co'>#&gt;               [,1]
+#&gt; [1,] -1.110223e-16</div><div class='input'>
+<span class='fu'>null_complement</span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>NA_real_</span>, <span class='fl'>3</span>), <span class='no'>m1</span>)</div><div class='output co'>#&gt;      [,1]
+#&gt; [1,]   NA
+#&gt; [2,]   NA
+#&gt; [3,]   NA</div><div class='input'><span class='fu'>null_complement</span>(<span class='fl'>NA</span>, <span class='no'>m1</span>)</div><div class='output co'>#&gt;      [,1] [,2]
+#&gt; [1,]    1    0
+#&gt; [2,]    0    1
+#&gt; [3,]    0    0</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

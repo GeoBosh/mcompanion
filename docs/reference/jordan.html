@@ -212,60 +212,107 @@ Utility functions for work with the Jordan decompositions of matrices:
     <p>0</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mat2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='make_mcmatrix.html'>make_mcmatrix</a></span>(<span class='kw'>eigval</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>))
-<span class='no'>mat2</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
+    <pre class="examples"><div class='input'><span class='co'>## single Jordan blocks</span>
+<span class='fu'>Jordan_matrix</span>(<span class='fl'>4</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt;      [,1] [,2]
+#&gt; [1,]    4    1
+#&gt; [2,]    0    4</div><div class='input'><span class='fu'>Jordan_matrix</span>(<span class='fl'>5</span>, <span class='fl'>3</span>)</div><div class='output co'>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    5    1    0
+#&gt; [2,]    0    5    1
+#&gt; [3,]    0    0    5</div><div class='input'><span class='fu'>Jordan_matrix</span>(<span class='fl'>6</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt;      [,1]
+#&gt; [1,]    6</div><div class='input'><span class='co'>## a matrix with the above 3 blocks</span>
+<span class='fu'>Jordan_matrix</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>6</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4] [,5] [,6]
+#&gt; [1,]    4    1    0    0    0    0
+#&gt; [2,]    0    4    0    0    0    0
+#&gt; [3,]    0    0    5    1    0    0
+#&gt; [4,]    0    0    0    5    1    0
+#&gt; [5,]    0    0    0    0    5    0
+#&gt; [6,]    0    0    0    0    0    6</div><div class='input'>
+<span class='co'>## a matrix with a 2x2 Jordan block for eval 1 and two simple 0 eval's</span>
+<span class='no'>m</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='make_mcmatrix.html'>make_mcmatrix</a></span>(<span class='kw'>eigval</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>)),
+                     <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>))
+<span class='no'>m</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
 #&gt; [1,]    0    1    0    0
 #&gt; [2,]   -1    2    0    0
 #&gt; [3,]    0    1    0    0
-#&gt; [4,]    0    1    0    0</div><div class='input'><span class='no'>mat2</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>) <span class='co'># e.v. for eigenvalue 1</span></div><div class='output co'>#&gt;      [,1]
-#&gt; [1,]    1
-#&gt; [2,]    1
-#&gt; [3,]    1
-#&gt; [4,]    1</div><div class='input'>
-<span class='no'>mat2</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>)     <span class='co'># gen.e.v. for eigenvalue 1</span></div><div class='output co'>#&gt;      [,1]
-#&gt; [1,]    1
-#&gt; [2,]    2
-#&gt; [3,]    1
-#&gt; [4,]    1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>) + <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>) <span class='co'># same (confirming the above)</span></div><div class='output co'>#&gt; [1] 1 2 1 1</div><div class='input'>
-<span class='co'>## mat2 X = X jordan.block</span>
-<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>)) <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))</div><div class='output co'>#&gt;      [,1] [,2]
-#&gt; [1,]    1    1
-#&gt; [2,]    1    2
-#&gt; [3,]    1    1
-#&gt; [4,]    1    1</div><div class='input'><span class='no'>mat2</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>))</div><div class='output co'>#&gt;      [,1] [,2]
-#&gt; [1,]    1    1
-#&gt; [2,]    1    2
-#&gt; [3,]    1    1
-#&gt; [4,]    1    1</div><div class='input'>
-<span class='no'>mat2.X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>))
-<span class='no'>mat2.X</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
+#&gt; [4,]    0    1    0    0</div><div class='input'><span class='no'>m.X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>))
+<span class='no'>m.X</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
 #&gt; [1,]    1    0    0    0
 #&gt; [2,]    1    1    0    0
 #&gt; [3,]    1    0    1    0
-#&gt; [4,]    1    0    0    1</div><div class='input'><span class='no'>mat2.J</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>,<span class='fl'>4</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>,<span class='fl'>4</span>))
-<span class='no'>mat2.J</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
+#&gt; [4,]    1    0    0    1</div><div class='input'><span class='no'>m.J</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>,<span class='fl'>4</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>,<span class='fl'>4</span>))
+<span class='no'>m.J</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
 #&gt; [1,]    1    1    0    0
 #&gt; [2,]    0    1    0    0
 #&gt; [3,]    0    0    0    0
 #&gt; [4,]    0    0    0    0</div><div class='input'>
-<span class='no'>mat2.X</span> <span class='kw'>%*%</span> <span class='no'>mat2.J</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/solve.html'>solve</a></span>(<span class='no'>mat2.X</span>)</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
+<span class='fu'>from_Jordan</span>(<span class='no'>m.X</span>, <span class='no'>m.J</span>)          <span class='co'># == m</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
 #&gt; [1,]    0    1    0    0
 #&gt; [2,]   -1    2    0    0
 #&gt; [3,]    0    1    0    0
-#&gt; [4,]    0    1    0    0</div><div class='input'><span class='no'>mat2</span>  <span class='co'># same</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
+#&gt; [4,]    0    1    0    0</div><div class='input'><span class='no'>m.X</span> <span class='kw'>%*%</span> <span class='no'>m.J</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/solve.html'>solve</a></span>(<span class='no'>m.X</span>) <span class='co'># == m</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
 #&gt; [1,]    0    1    0    0
 #&gt; [2,]   -1    2    0    0
 #&gt; [3,]    0    1    0    0
-#&gt; [4,]    0    1    0    0</div><div class='input'>
-<span class='no'>mat2.X</span> <span class='kw'>%*%</span> <span class='no'>mat2.J</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
+#&gt; [4,]    0    1    0    0</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span>(<span class='no'>m</span> <span class='kw'>==</span> <span class='fu'>from_Jordan</span>(<span class='no'>m.X</span>, <span class='no'>m.J</span>)) <span class='kw'>&amp;&amp;</span> <span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span>(<span class='no'>m</span> <span class='kw'>==</span> <span class='no'>m.X</span> <span class='kw'>%*%</span> <span class='no'>m.J</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/solve.html'>solve</a></span>(<span class='no'>m.X</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='co'>## TRUE</span>
+
+<span class='co'>## which column(s) in m.X correspond to 1st Jordan block?</span>
+<span class='fu'>chain_ind</span>(<span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>1</span>)) <span class='co'># c(1, 2) since 2x2 Jordan block</span></div><div class='output co'>#&gt; [1] 1 2</div><div class='input'>
+<span class='co'>## which column(s) in m.X correspond to 2nd Jordan block?</span>
+<span class='fu'>chain_ind</span>(<span class='fl'>2</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>1</span>)) <span class='co'># 3, simple eval</span></div><div class='output co'>#&gt; [1] 3</div><div class='input'>
+<span class='co'>## which column(s) in m.X correspond to 1st and 2nd Jordan blocks?</span>
+<span class='fu'>chain_ind</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>1</span>)) <span class='co'># c(1,2,3)</span></div><div class='output co'>#&gt; [1] 1 2 3</div><div class='input'><span class='co'>## non-contiguous subset are ok:</span>
+<span class='fu'>chain_ind</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>1</span>)) <span class='co'># c(1,2,4)</span></div><div class='output co'>#&gt; [1] 1 2 4</div><div class='input'>
+<span class='co'>## split the chains into a list of matrices</span>
+<span class='fu'>chains_to_list</span>(<span class='no'>m.X</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>1</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    0
+#&gt; [2,]    1    1
+#&gt; [3,]    1    0
+#&gt; [4,]    1    0
+#&gt; 
+#&gt; [[2]]
+#&gt;      [,1]
+#&gt; [1,]    0
+#&gt; [2,]    0
+#&gt; [3,]    1
+#&gt; [4,]    0
+#&gt; 
+#&gt; [[3]]
+#&gt;      [,1]
+#&gt; [1,]    0
+#&gt; [2,]    0
+#&gt; [3,]    0
+#&gt; [4,]    1
+#&gt; </div><div class='input'>
+<span class='no'>m.X</span> <span class='kw'>%*%</span> <span class='no'>m.J</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
 #&gt; [1,]    1    1    0    0
 #&gt; [2,]    1    2    0    0
 #&gt; [3,]    1    1    0    0
-#&gt; [4,]    1    1    0    0</div><div class='input'><span class='no'>mat2</span> <span class='kw'>%*%</span> <span class='no'>mat2.X</span>    <span class='co'># same</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
+#&gt; [4,]    1    1    0    0</div><div class='input'><span class='no'>m</span> <span class='kw'>%*%</span> <span class='no'>m.X</span>    <span class='co'># same</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
 #&gt; [1,]    1    1    0    0
 #&gt; [2,]    1    2    0    0
 #&gt; [3,]    1    1    0    0
-#&gt; [4,]    1    1    0    0</div></pre>
+#&gt; [4,]    1    1    0    0</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span>(<span class='no'>m.X</span> <span class='kw'>%*%</span> <span class='no'>m.J</span> <span class='kw'>==</span> <span class='no'>m</span> <span class='kw'>%*%</span> <span class='no'>m.X</span>)    <span class='co'># TRUE</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+<span class='no'>m</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>)    <span class='co'># = c(1,1,1,1),  evec for eigenvalue 1</span></div><div class='output co'>#&gt;      [,1]
+#&gt; [1,]    1
+#&gt; [2,]    1
+#&gt; [3,]    1
+#&gt; [4,]    1</div><div class='input'><span class='no'>m</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>)    <span class='co'># gen.e.v. for eigenvalue 1</span></div><div class='output co'>#&gt;      [,1]
+#&gt; [1,]    1
+#&gt; [2,]    2
+#&gt; [3,]    1
+#&gt; [4,]    1</div><div class='input'><span class='co'>## indeed:</span>
+<span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span>( <span class='no'>m</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>) <span class='kw'>==</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>) + <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>) ) <span class='co'># TRUE    </span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+<span class='co'>## m X = X jordan.block</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>)) <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))</div><div class='output co'>#&gt;      [,1] [,2]
+#&gt; [1,]    1    1
+#&gt; [2,]    1    2
+#&gt; [3,]    1    1
+#&gt; [4,]    1    1</div><div class='input'><span class='no'>m</span> <span class='kw'>%*%</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>))</div><div class='output co'>#&gt;      [,1] [,2]
+#&gt; [1,]    1    1
+#&gt; [2,]    1    2
+#&gt; [3,]    1    1
+#&gt; [4,]    1    1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

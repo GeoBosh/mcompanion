@@ -1,0 +1,44 @@
+
+reference:
+  - title: "mcompanion overview"
+    desc: >
+      mcompanion overview
+    contents:
+      - "mcompanion-package"
+      
+  - title: "Classes and generators"
+    contents:
+      - "MultiCompanion-class"
+      - "SmallMultiCompanion-class"
+      - "MultiFilter-class"
+      - VAR2pcfilter
+      - mCompanion
+      - "mcSpec-class"
+      - mcSpec
+      - mf_VSform
+  - title: "Utilities for multi-companion matrices"
+    contents:
+      - mc_eigen
+      - mc_factorize
+      - mc_factors
+      - mc_from_factors
+      - mc_full
+      - mc_order
+      - make_mcmatrix 
+  - title: "Simulation"
+    contents:
+      - matches("sim_")
+  - title: "Generic matrix utilities"
+    contents:
+      - matches("[Jj]ordan")
+      - null_complement
+      - rblockmult
+      - mcStable
+  - title: "Spectral description of mc-matrices"
+    contents:
+      - matches("^spec_.+")
+      - spec_seeds1
+  - title: "Low-level functions"
+    contents:
+      - mc_chain_extend
+      - permute_var

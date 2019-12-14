@@ -124,23 +124,24 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>period</th>
-      <td><p>the period</p></td>
+      <td><p>the period.</p></td>
     </tr>
     <tr>
       <th>n.root</th>
-      <td><p>number of non-zero roots (poles)</p></td>
+      <td><p>number of non-zero roots (poles).</p></td>
     </tr>
     <tr>
       <th>order</th>
-      <td><p>order of the  filter</p></td>
+      <td><p>order of the  filter.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>additional parameters to be passed down to <code>sim_mc</code></p></td>
+      <td><p>additional parameters to be passed down to <code>sim_mc</code>.</p></td>
     </tr>
     <tr>
       <th>mo.col</th>
-      <td><p>~~ TODO: describe this argument. ~~</p></td>
+      <td><p>the last non-zero column in the top of the mc-matrix. The default is
+    <code>dim</code>.</p></td>
     </tr>
     </table>
 
@@ -148,6 +149,9 @@
 
     
 
+<p>Generates periodic filters using the multicompanion approach
+  (Boshnakov and Iqelan 2009)
+.</p>
 <p>By default the generated filter is stable and may be used as the
   autoregressive or moving average part of a periodic autoregressive
   moving average model. The filter is generated from the specified
@@ -182,8 +186,6 @@ ISSN 0143-9782, <a href='http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x'>htt
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     
-
-
 
 <p>todo: a) Allow different orders for the individual seasons. This is
   not  trivial and maybe not natural for this method. In the singular

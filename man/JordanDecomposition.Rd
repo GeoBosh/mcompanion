@@ -98,12 +98,19 @@ JordanDecomposition(values, vectors, heights, ...)
 }
 }}
 \examples{
-m <- matrix(c(1,2,4,3), nrow = 2)
+m <- matrix(c(1,2,4,10), nrow = 2)
+m <- matrix(c(1,2,4,10), nrow = 2)
+m <- matrix(c(5, 12, 3, 4), nrow = 2)
 
 JordanDecomposition(values = rep(0,2), vectors = m)
-JordanDecomposition(values = c(0.3, 0.9), vectors = m)
+jd <- JordanDecomposition(values = c(0.9, 0.3), vectors = m)
+as(jd, "matrix")
+eigen(jd)
+## the eigenvectors are scaled versions of m's columns:
+eigen(jd)$vectors %*% diag(c(5 / eigen(jd)$vectors[1,1], -5))
+## == m
 
-## eigenvalues are set to  NA's here:
+## eigenvalues are not supplied, so set to  NA's here:
 JordanDecomposition(vectors = m)
 
 ## eigenvectors are set to vectors of NA's here:

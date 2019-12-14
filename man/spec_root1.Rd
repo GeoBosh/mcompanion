@@ -12,7 +12,7 @@ spec_root1(mo, root1 = numeric(0), iorder = 0, siorder = 0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{mo}{mc order}
+  \item{mo}{mc order.}
   \item{root1}{Jordan block lengths for the unit roots, a vector of
     positive integer numbers.
   }
@@ -76,4 +76,3 @@ spec_root1(4, root1 = c(2,1,1))
 
 }
 \keyword{mcspec}
-

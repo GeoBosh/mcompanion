@@ -224,14 +224,14 @@ null_complement <- function(m, universe = NULL, na.allow = TRUE){
         }##else m is assumed a matrix
 
         if(is.null(universe))
-            universe <- diag(nrow = nrow(m))
+            universe <- diag(nrow = NROW(m))
 
         if(all(is.na(m)))
-            res <- matrix(NA_real_, nrow = nrow(m), ncol = ncol(universe) - ncol(m))
+            res <- matrix(NA_real_, nrow = NROW(m), ncol = ncol(universe) - NCOL(m))
         else{
             ## Zasega ostavyam kakto gornoto, vzh. komentara po-dolu.
             ##
-            res <- matrix(NA_real_, nrow = nrow(m), ncol = ncol(universe) - ncol(m))
+            res <- matrix(NA_real_, nrow = NROW(m), ncol = ncol(universe) - NCOL(m))
             ##
             ## TODO: rezultatat e lineyni komb. na kolonite na u2, ako vsyaka ot kolonite na
             ## 'm' e ili iztsyalo NA ili bez NA's. Inache (ako ima koloni s chisla i NA)
@@ -710,10 +710,10 @@ make_mcchains <- function(eigval, co, dim, len.block, eigval0 = FALSE, mo.col = 
         len.block <- c(len.block, wrkvz$len.block)
     }
 
-    if(sum(len.block) != dim){       # todo: error, not warning?
-        if(sum(len.block) > dim)
+    if(sum(len.block) != dim){     
+        if(sum(len.block) > dim)     # todo: error, not warning?
             warning("The total length of the Jordan chains is greater than dim!")
-        else
+        else if(eigval0) # here  sum(len.block) < dim
             warning("The total length of the Jordan chains is smaller than dim.")
     }
 

@@ -155,35 +155,51 @@
     <tr>
       <th>eigval0</th>
       <td><p>If TRUE completes the matrix to a square matrix, see
-    details</p></td>
+    details. <code>eigval0</code> is ignored by <code>make_mcmatrix</code> (it
+    always sets it to <code>TRUE</code>).</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>additional arguments to be passed down, see details</p></td>
+      <td><p>for <code>make_mcmatrix</code>, these are additional arguments to be passed
+    to  <code>make_mcchains</code>. For <code>make_mcchains</code>, arguments in
+              <code>"..."</code> are passed on to  <code>mc_0chains</code>.</p></td>
     </tr>
     <tr>
       <th>mo.col</th>
-      <td><p>~~ TODO: describe this argument. ~~</p></td>
+      <td><p>the last non-zero column in the top of the mc-matrix. The default is
+    <code>dim</code>.</p></td>
     </tr>
     <tr>
       <th>what.co</th>
-      <td><p>~~ TODO: describe this argument. ~~</p></td>
+      <td><p>a character string equal to <code>"bottom"</code> (default) or
+    <code>"top"</code>, specifying whether the 'co' parameters give the last
+    or the first few elements of the (generalised) eigenvectors.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The spectral parameters are used to generate the (generalised)
-  eigenvectors and the corresponding Jordan matrix which are then
-  multiplied to get the matrix. By default, the real part is returned
-  which is appropriate if all complex spectral parameters come in
-  complex conjugate pairs. This may be changed by the argument
-  <code>type</code>. A list containing the matrix and the Jordan factors is
-  returned if <code>what.res = "list"</code>.</p>
-<p>The closely related function <code>sim_mc</code> does the same but completes
+    
+
+<p><code>make_mcmatrix</code> creates a multi-companion matrix specified by
+  spectral parameters. <code>make_mcchains</code> creates a matrix of
+  eigenvectors and generalised eigenvectors from the given spectral
+  parameters.</p>
+<p><code>make_mcmatrix</code> passes the spectral parameters to
+  <code>make_mcchains</code> to generate the (generalised) eigenvectors. It
+  then calls <code>Jordan_matrix</code> to create the corresponding Jordan
+  matrix.  The results are combined to produce the multicompanion
+  matrix.  By default, the real part is returned, which is appropriate
+  if all complex spectral parameters come in complex conjugate
+  pairs. This may be changed by argument <code>type</code>. A list containing
+  the matrix and the Jordan factors is returned if <code>what.res =
+  "list"</code>.</p>
+<p>The closely related function <code><a href='sim_mc.html'>sim_mc</a></code> is like
+  <code>make_mcmatrix</code> but it does not need complete specification of
+  the matrix - it completes
   any missing information (eigenvalues, co) with randomly generated
   entries. The result of both functions is a list or ordinary matrix,
-  use <code>mCompanion</code> to obtain a <code>MultiCompanion</code> object
+  use <code><a href='mCompanion.html'>mCompanion</a></code> to obtain a <code>MultiCompanion</code> object
   directly.</p>
 <p><code>make_mcchains</code> constructs the eigensystem, <code>make_mcmatrix</code>
   calls <code>make_mcchains</code> (passing the <code>...</code> arguments to it)
@@ -192,7 +208,6 @@
   <!-- % \code{make_mcev} and \code{make_mcgev}. Currently (July 2007) the -->
   <!-- % only one (of the '...' arguments?) of importance to the user is -->
   <!-- % \code{what.co}. --></p>
-
 <p><code>make_mcchains</code> creates the full eigenvectors from the <code>co</code>
   parameters. If the number of vectors is smaller then <code>dim</code> and
   <code>eigval0</code> is TRUE  it then completes the system with chains for
@@ -200,12 +215,15 @@
   the given chains is <code>mo.col</code>,  takes chains corresponding
   to the zero eigenvalue, if any, and adds additional eigenvectors
   and/or generalised eigenvectors to construct the complete system.</p>
+<p>The mc-order is determined from the dimension of the 'co'
+  parameters. If that is equal to <code>dim</code>, the mc-matrix is actually a
+  general matrix.</p>
 <p><strong>TODO:</strong> cover the case <code>mo &lt; mo.col</code>?</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>make_mcmatrix</code> normally returns the multi-companion matrix (as an
   ordinary matrix) having the given spectral properties but if
-  <code>what.res=="list"</code>, it returns a list containing the matrix and
+  <code>what.res = "list"</code>, it returns a list containing the matrix and
   the spectral information:</p>
 <p></p>
 <dt>eigval</dt><dd><p>eigenvalues, a vector</p></dd>
@@ -248,7 +266,157 @@ ISSN 0143-9782, <a href='http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x'>htt
   <code><a href='mCompanion.html'>mCompanion</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>make_mcchains</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>4</span>,
+    <pre class="examples"><div class='input'><span class='fu'>make_mcmatrix</span>(<span class='kw'>eigval</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0.5</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, -<span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>4</span>,
+              <span class='kw'>mo.col</span> <span class='kw'>=</span> <span class='fl'>2</span>,
+              <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
+#&gt; [1,] 0.75 0.25    0    0
+#&gt; [2,] 0.25 0.75    0    0
+#&gt; [3,] 1.00 0.00    0    0
+#&gt; [4,] 0.00 1.00    0    0</div><div class='input'>
+<span class='co'>## one unit root, one root = 0.5</span>
+<span class='fu'>make_mcmatrix</span>(<span class='kw'>eigval</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0.5</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, -<span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>6</span>,
+              <span class='kw'>mo.col</span> <span class='kw'>=</span> <span class='fl'>2</span>,
+              <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4] [,5] [,6]
+#&gt; [1,] 0.75 0.25    0    0    0    0
+#&gt; [2,] 0.25 0.75    0    0    0    0
+#&gt; [3,] 1.00 0.00    0    0    0    0
+#&gt; [4,] 0.00 1.00    0    0    0    0
+#&gt; [5,] 0.00 0.00    1    0    0    0
+#&gt; [6,] 0.00 0.00    0    1    0    0</div><div class='input'>
+<span class='co'>## two simple unit roots, one root = 0.5</span>
+<span class='fu'>make_mcmatrix</span>(<span class='kw'>eigval</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0.5</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, -<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>6</span>,
+              <span class='kw'>mo.col</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+              <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4] [,5] [,6]
+#&gt; [1,]  1.5    0 -0.5    0    0    0
+#&gt; [2,]  0.5    1 -0.5    0    0    0
+#&gt; [3,]  1.0    0  0.0    0    0    0
+#&gt; [4,]  0.0    1  0.0    0    0    0
+#&gt; [5,]  0.0    0  1.0    0    0    0
+#&gt; [6,]  0.0    0  0.0    1    0    0</div><div class='input'>
+<span class='co'>## two unit roots with a single Jordan chain, one root = 0.5</span>
+<span class='fu'>make_mcmatrix</span>(<span class='kw'>eigval</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0.5</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>6</span>,
+              <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4] [,5] [,6]
+#&gt; [1,]    1  0.5 -0.5    0    0    0
+#&gt; [2,]    0  1.5 -0.5    0    0    0
+#&gt; [3,]    1  0.0  0.0    0    0    0
+#&gt; [4,]    0  1.0  0.0    0    0    0
+#&gt; [5,]    0  0.0  1.0    0    0    0
+#&gt; [6,]    0  0.0  0.0    1    0    0</div><div class='input'>
+
+<span class='co'>## make_mcchains</span>
+<span class='fu'>make_mcchains</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0.5</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>4</span>,
+              <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>), <span class='kw'>eigval0</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; $eigval
+#&gt; [1] 1.0 0.5 0.0 0.0
+#&gt; 
+#&gt; $len.block
+#&gt; [1] 1 1 1 1
+#&gt; 
+#&gt; $mo
+#&gt; [1] 2
+#&gt; 
+#&gt; $eigvec
+#&gt;      [,1] [,2] [,3] [,4]
+#&gt; [1,]    1  0.5    0    0
+#&gt; [2,]    1  0.5    0    0
+#&gt; [3,]    1  1.0    1    0
+#&gt; [4,]    1  1.0    0    1
+#&gt; 
+#&gt; $co
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    1
+#&gt; [2,]    1    1
+#&gt; 
+#&gt; $mo.col
+#&gt; [1] 2
+#&gt; </div><div class='input'>
+<span class='co'>## one unit root, one root = 0.5</span>
+<span class='fu'>make_mcchains</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0.5</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>6</span>,
+              <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>), <span class='kw'>eigval0</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; $eigval
+#&gt; [1] 1.0 0.5 0.0 0.0
+#&gt; 
+#&gt; $len.block
+#&gt; [1] 1 1 2 2
+#&gt; 
+#&gt; $mo
+#&gt; [1] 2
+#&gt; 
+#&gt; $eigvec
+#&gt;      [,1] [,2] [,3] [,4] [,5] [,6]
+#&gt; [1,]    1 0.25    0    0    0    0
+#&gt; [2,]    1 0.25    0    0    0    0
+#&gt; [3,]    1 0.50    0    1    0    0
+#&gt; [4,]    1 0.50    0    0    0    1
+#&gt; [5,]    1 1.00    1    0    0    0
+#&gt; [6,]    1 1.00    0    0    1    0
+#&gt; 
+#&gt; $co
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    1
+#&gt; [2,]    1    1
+#&gt; 
+#&gt; $mo.col
+#&gt; [1] 2
+#&gt; </div><div class='input'>
+<span class='co'>## two simple unit roots, one root = 0.5</span>
+<span class='fu'>make_mcchains</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0.5</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, -<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>6</span>,
+              <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>), <span class='kw'>eigval0</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; $eigval
+#&gt; [1] 1.0 1.0 0.5 0.0 0.0
+#&gt; 
+#&gt; $len.block
+#&gt; [1] 1 1 1 2 1
+#&gt; 
+#&gt; $mo
+#&gt; [1] 2
+#&gt; 
+#&gt; $eigvec
+#&gt;      [,1] [,2] [,3] [,4] [,5] [,6]
+#&gt; [1,]    1    1 0.25    0    0    0
+#&gt; [2,]    1   -1 0.25    0    0    0
+#&gt; [3,]    1    1 0.50    0    0    0
+#&gt; [4,]    1   -1 0.50    0    1    0
+#&gt; [5,]    1    1 1.00    0    0    1
+#&gt; [6,]    1   -1 1.00    1    0    0
+#&gt; 
+#&gt; $co
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    1    1
+#&gt; [2,]    1   -1    1
+#&gt; 
+#&gt; $mo.col
+#&gt; [1] 3
+#&gt; </div><div class='input'>
+<span class='co'>## two unit roots with a single Jordan chain, one root = 0.5</span>
+<span class='fu'>make_mcchains</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0.5</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, -<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>6</span>,
+              <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>1</span>), <span class='kw'>eigval0</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; $eigval
+#&gt; [1] 1.0 0.5 0.0 0.0
+#&gt; 
+#&gt; $len.block
+#&gt; [1] 2 1 2 1
+#&gt; 
+#&gt; $mo
+#&gt; [1] 2
+#&gt; 
+#&gt; $eigvec
+#&gt;      [,1] [,2] [,3] [,4] [,5] [,6]
+#&gt; [1,]    1    3 0.25    0    0    0
+#&gt; [2,]    1    1 0.25    0    0    0
+#&gt; [3,]    1    2 0.50    0    0    0
+#&gt; [4,]    1    0 0.50    0    1    0
+#&gt; [5,]    1    1 1.00    0    0    1
+#&gt; [6,]    1   -1 1.00    1    0    0
+#&gt; 
+#&gt; $co
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    1    1
+#&gt; [2,]    1   -1    1
+#&gt; 
+#&gt; $mo.col
+#&gt; [1] 3
+#&gt; </div><div class='input'>
+
+
+<span class='co'>## examples with mc-order = dim</span>
+<span class='fu'>make_mcchains</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>4</span>,
               <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>), <span class='kw'>eigval0</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; $eigval
 #&gt; [1] 1 0 0
 #&gt; 
@@ -264,6 +432,33 @@ ISSN 0143-9782, <a href='http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x'>htt
 #&gt; [2,]    1    2    0    0
 #&gt; [3,]    1    1    1    0
 #&gt; [4,]    1    1    0    1
+#&gt; 
+#&gt; $co
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    1
+#&gt; [2,]    1    2
+#&gt; [3,]    1    1
+#&gt; [4,]    1    1
+#&gt; 
+#&gt; $mo.col
+#&gt; [1] 2
+#&gt; </div><div class='input'><span class='co'>## do not complete with chians for the 0 eigval:</span>
+<span class='fu'>make_mcchains</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>), <span class='kw'>co</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>1</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>4</span>,
+              <span class='kw'>len.block</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>), <span class='kw'>eigval0</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $eigval
+#&gt; [1] 1
+#&gt; 
+#&gt; $len.block
+#&gt; [1] 2
+#&gt; 
+#&gt; $mo
+#&gt; [1] 4
+#&gt; 
+#&gt; $eigvec
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    1
+#&gt; [2,]    1    2
+#&gt; [3,]    1    1
+#&gt; [4,]    1    1
 #&gt; 
 #&gt; $co
 #&gt;      [,1] [,2]

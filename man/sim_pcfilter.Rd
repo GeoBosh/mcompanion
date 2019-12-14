@@ -8,13 +8,21 @@
 sim_pcfilter(period, n.root, order = n.root, mo.col, \dots)
 }
 \arguments{
-  \item{period}{ the period }
-  \item{n.root}{ number of non-zero roots (poles) }
-  \item{order}{ order of the  filter }
-  \item{\dots}{ additional parameters to be passed down to \code{sim_mc}}
-  \item{mo.col}{~~ TODO: describe this argument. ~~}
+  \item{period}{ the period. }
+  \item{n.root}{ number of non-zero roots (poles). }
+  \item{order}{ order of the  filter. }
+  \item{\dots}{
+    additional parameters to be passed down to \code{sim_mc}.
+  }
+  \item{mo.col}{
+    the last non-zero column in the top of the mc-matrix. The default is
+    \code{dim}.
+  }
 }
 \details{
+
+  Generates periodic filters using the multicompanion approach
+  \insertCite{boshnakov2009gen}{mcompanion}.
 
   By default the generated filter is stable and may be used as the
   autoregressive or moving average part of a periodic autoregressive
@@ -49,8 +57,6 @@ ISSN 0143-9782, \url{http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x}.
 }
 \author{Georgi N. Boshnakov}
 \note{
-
-
 
   todo: a) Allow different orders for the individual seasons. This is
   not  trivial and maybe not natural for this method. In the singular

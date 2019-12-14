@@ -147,7 +147,7 @@
   matrix of <code>x[perm]</code>. If <code>P</code> is the permutation matrix
   corresponding to <code>perm</code>, then the computed value is
   <code>P %*% mat %*% t(P)</code>.</p>
-<p><code>permute_synch</code> perform the above transformation on all matrices
+<p><code>permute_synch</code> performs the above transformation on all matrices
   found in <code>param</code>. More precisely, if <code>param</code> is a matrix,
   then the result is the same as for <code>permute_var</code>. Otherwise
   <code>param</code> should be a list and, conceptually, <code>permute_synch</code> is

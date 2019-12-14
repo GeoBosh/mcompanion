@@ -21,7 +21,7 @@ permute_synch(param, perm)
   corresponding to \code{perm}, then the computed value is
   \code{P \%*\% mat \%*\% t(P)}.
 
-  \code{permute_synch} perform the above transformation on all matrices
+  \code{permute_synch} performs the above transformation on all matrices
   found in \code{param}. More precisely, if \code{param} is a matrix,
   then the result is the same as for \code{permute_var}. Otherwise
   \code{param} should be a list and, conceptually, \code{permute_synch} is

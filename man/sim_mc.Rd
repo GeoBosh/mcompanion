@@ -11,11 +11,13 @@ sim_mc(dim, mo, mo.col = dim, eigval, len.block, type.eigval = NULL,
        value = "real", value.type = "", ...)
 }
 \arguments{
-  \item{dim}{ dimension of the matrix }
-  \item{mo}{ multi-companion order }
-  \item{mo.col}{ number of structural columns }
-  \item{eigval}{ eigenvalues }
-  \item{len.block}{ lengths of Jordan blocks }
+  \item{dim}{ dimension of the matrix. }
+  \item{mo}{ multi-companion order. }
+  \item{mo.col}{ number of structural columns. }
+  \item{eigval}{ eigenvalues, one for each Jordan block. }
+  \item{len.block}{
+    lengths of the Jordan blocks corresponding to \code{eigval}.
+  } 
   \item{type.eigval}{ types of the eigenvalues, a character vector }
   \item{co}{ \code{co} parameters, see Details.}
   \item{eigabs}{ moduli (absolute values) of eigenvalues, see Details.}

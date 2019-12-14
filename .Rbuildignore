@@ -1,4 +1,6 @@
 .rsync_exclude
+_pkgdown.yml
+^docs/
 ^tests/testthat/.RData
 ^Org/
 ^Org$

@@ -22,24 +22,46 @@ make_mcchains(eigval, co, dim, len.block, eigval0 = FALSE,
   \item{type}{ mode of the matrix, real or complex }
   \item{what.res}{ format of the result, see details }
   \item{eigval0}{ If TRUE completes the matrix to a square matrix, see
-    details}
-  \item{\dots}{ additional arguments to be passed down, see details }
-  \item{mo.col}{~~ TODO: describe this argument. ~~}
-  \item{what.co}{~~ TODO: describe this argument. ~~}
+    details. \code{eigval0} is ignored by \code{make_mcmatrix} (it
+    always sets it to \code{TRUE}).}
+  \item{\dots}{
+    for \code{make_mcmatrix}, these are additional arguments to be passed
+    to  \code{make_mcchains}. For \code{make_mcchains}, arguments in
+              \code{"..."} are passed on to  \code{mc_0chains}.
+  }
+  \item{mo.col}{
+    the last non-zero column in the top of the mc-matrix. The default is
+    \code{dim}.
+  }
+  \item{what.co}{
+    a character string equal to \code{"bottom"} (default) or
+    \code{"top"}, specifying whether the 'co' parameters give the last
+    or the first few elements of the (generalised) eigenvectors.
+  }
 }
 \details{
-  The spectral parameters are used to generate the (generalised)
-  eigenvectors and the corresponding Jordan matrix which are then
-  multiplied to get the matrix. By default, the real part is returned
-  which is appropriate if all complex spectral parameters come in
-  complex conjugate pairs. This may be changed by the argument
-  \code{type}. A list containing the matrix and the Jordan factors is
-  returned if \code{what.res = "list"}.
 
-  The closely related function \code{sim_mc} does the same but completes
+  \code{make_mcmatrix} creates a multi-companion matrix specified by
+  spectral parameters. \code{make_mcchains} creates a matrix of
+  eigenvectors and generalised eigenvectors from the given spectral
+  parameters.
+
+  \code{make_mcmatrix} passes the spectral parameters to
+  \code{make_mcchains} to generate the (generalised) eigenvectors. It
+  then calls \code{Jordan_matrix} to create the corresponding Jordan
+  matrix.  The results are combined to produce the multicompanion
+  matrix.  By default, the real part is returned, which is appropriate
+  if all complex spectral parameters come in complex conjugate
+  pairs. This may be changed by argument \code{type}. A list containing
+  the matrix and the Jordan factors is returned if \code{what.res =
+  "list"}.
+
+  The closely related function \code{\link{sim_mc}} is like
+  \code{make_mcmatrix} but it does not need complete specification of
+  the matrix - it completes
   any missing information (eigenvalues, co) with randomly generated
   entries. The result of both functions is a list or ordinary matrix,
-  use \code{mCompanion} to obtain a \code{MultiCompanion} object
+  use \code{\link{mCompanion}} to obtain a \code{MultiCompanion} object
   directly.
 
   \code{make_mcchains} constructs the eigensystem, \code{make_mcmatrix}
@@ -50,7 +72,6 @@ make_mcchains(eigval, co, dim, len.block, eigval0 = FALSE,
   % only one (of the '...' arguments?) of importance to the user is
   % \code{what.co}.
 
-
   \code{make_mcchains} creates the full eigenvectors from the \code{co}
   parameters. If the number of vectors is smaller then \code{dim} and
   \code{eigval0} is TRUE  it then completes the system with chains for
@@ -59,13 +80,17 @@ make_mcchains(eigval, co, dim, len.block, eigval0 = FALSE,
   to the zero eigenvalue, if any, and adds additional eigenvectors
   and/or generalised eigenvectors to construct the complete system.
 
+  The mc-order is determined from the dimension of the 'co'
+  parameters. If that is equal to \code{dim}, the mc-matrix is actually a
+  general matrix.
+
   \strong{TODO:} cover the case \code{mo < mo.col}?
 
 }
 \value{
   \code{make_mcmatrix} normally returns the multi-companion matrix (as an
   ordinary matrix) having the given spectral properties but if
-  \code{what.res=="list"}, it returns a list containing the matrix and
+  \code{what.res = "list"}, it returns a list containing the matrix and
   the spectral information:
 
   \item{eigval}{eigenvalues, a vector}
@@ -108,8 +133,49 @@ ISSN 0143-9782, \url{http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x}.
   \code{\link{mCompanion}}
 }
 \examples{
+make_mcmatrix(eigval = c(1, 0.5), co = cbind(c(1,1), c(1, -1)), dim = 4,
+              mo.col = 2,
+              len.block = c(1, 1))
+
+## one unit root, one root = 0.5
+make_mcmatrix(eigval = c(1, 0.5), co = cbind(c(1,1), c(1, -1)), dim = 6,
+              mo.col = 2,
+              len.block = c(1, 1))
+
+## two simple unit roots, one root = 0.5
+make_mcmatrix(eigval = c(1, 1, 0.5), co = cbind(c(1,1), c(1, -1), c(1, 1)), dim = 6,
+              mo.col = 3,
+              len.block = c(1, 1, 1))
+
+## two unit roots with a single Jordan chain, one root = 0.5
+make_mcmatrix(eigval = c(1, 0.5), co = cbind(c(1,1), c(0, 1), c(1, 1)), dim = 6,
+              len.block = c(2, 1))
+
+
+## make_mcchains
+make_mcchains(c(1, 0.5), co = cbind(c(1,1), c(1, 1)), dim = 4,
+              len.block = c(1, 1), eigval0 = TRUE)
+
+## one unit root, one root = 0.5
+make_mcchains(c(1, 0.5), co = cbind(c(1,1), c(1, 1)), dim = 6,
+              len.block = c(1, 1), eigval0 = TRUE)
+
+## two simple unit roots, one root = 0.5
+make_mcchains(c(1, 1, 0.5), co = cbind(c(1,1), c(1, -1), c(1, 1)), dim = 6,
+              len.block = c(1, 1, 1), eigval0 = TRUE)
+
+## two unit roots with a single Jordan chain, one root = 0.5
+make_mcchains(c(1, 0.5), co = cbind(c(1,1), c(1, -1), c(1, 1)), dim = 6,
+              len.block = c(2, 1), eigval0 = TRUE)
+
+
+
+## examples with mc-order = dim
 make_mcchains(c(1), co = cbind(c(1,1,1,1), c(1,2,1,1)), dim = 4,
               len.block = c(2), eigval0 = TRUE)
+## do not complete with chians for the 0 eigval:
+make_mcchains(c(1), co = cbind(c(1,1,1,1), c(1,2,1,1)), dim = 4,
+              len.block = c(2), eigval0 = FALSE)
 
 make_mcmatrix(eigval = c(1), co = cbind(c(1,1,1,1), c(1,2,1,1)), dim = 4,
               len.block = c(2))
