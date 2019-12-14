@@ -1,0 +1,22 @@
+
+(2015-07-24)
+Do a comprehensive review of matrix operations between MultiCompanion and other
+objects. Write additional methods where necessary.
+
+
+Old todo's:
+
+0. Obmisli terminologiyata i opishi.
+
+1. Strukturata an ev ne e ednakva navsyakade.
+
+2. Explain triangulation.
+
+3. Preimenuvay generic matrichni fuktsii na mat.xx,
+     napr. mat.jordan, mat.rblockmult, ...
+
+4. function mCompanion: da dobavya vazmoshnost x da e filter?
+
+5. make_mcchains - dali da ima optsiya za transformatsiya na co?
+
+6. normirovka na co, ev?

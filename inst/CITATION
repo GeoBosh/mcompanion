@@ -1,0 +1,38 @@
+citHeader("To cite package mcompanion in publications use:
+2009 for generation of time series models and/or
+2002 for general reference to multi-companion matrices."
+          )
+
+
+bibentry(
+    bibtype = "Article",
+    title = "Generation of time series models with given spectral properties",
+    author = c(
+        person(c("Georgi", "N."), "Boshnakov", role = c("aut", "cre")),
+        person(c("Bisher", "M."), "Iqelan"   , role = "aut")
+    ),
+    journal = "Journal of Time Series Analysis",
+    volume = "30",
+    number = "3",
+    year = "2009",
+    pages = "349-368",
+    doi = "10.1111/j.1467-9892.2009.00617.x"
+)
+
+
+bibentry(
+    bibtype = "Article",
+    title = "Multi-companion matrices",
+    author = "Boshnakov, Georgi N.",
+    author = person(c("Georgi", "N."), "Boshnakov", role = c("aut", "cre")),
+    journal = "Linear Algebra and its Applications",
+    volume = "354",
+    year = "2002",
+    pages = "53-83",
+    doi = "10.1016/S0024-3795(01)00475-X"
+)
+
+
+citFooter(c('To get the above in Bibtex format run:\n',
+ 'toBibtex(citation("mcompanion"))' ))
+

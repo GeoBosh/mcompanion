@@ -1,0 +1,19 @@
+Package: mcompanion
+Type: Package
+Title: Objects and Methods for Multi-Companion Matrices
+Version: 0.5-0
+Date: 2019-12-12
+Author: Georgi N. Boshnakov
+Maintainer: Georgi N. Boshnakov <georgi.boshnakov@manchester.ac.uk>
+Imports: methods, Matrix, gbutils, MASS, Rdpack
+Suggests: testthat
+RdMacros: Rdpack
+Description:
+    Provides a class for multi-companion matrices with methods for
+    arithmetic and factorization.  A method for generation of
+    multi-companion matrices with prespecified spectral properties is
+    provided, as well as some utilities for periodically correlated and
+    multivariate time series models. See Boshnakov (2002)
+    <10.1016/S0024-3795(01)00475-X> and Boshnakov & Iqelan (2009)
+    <doi:10.1111/j.1467-9892.2009.00617.x>.
+License: GPL (>= 2)

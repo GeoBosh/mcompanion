@@ -1,0 +1,97 @@
+import(methods, Matrix)
+
+importClassesFrom(gbutils, objectPad)
+importFrom(gbutils, pad, "pad<-", padcheck)
+importFrom(gbutils, sim_numbers, isNA)
+importFrom(Rdpack, rebib)
+
+importFrom(MASS, Null)
+
+S3method(as.matrix, MultiCompanion)
+S3method(as.matrix, SmallMultiCompanion)
+S3method(as.matrix, JordanDecompositionDefault)
+
+## exportClassPattern("^[^\\.]")
+exportClasses(
+    MultiCompanion,
+    MultiFilter
+)
+
+exportMethods(
+    "["
+  , "%*%"
+  , coerce
+  , t
+  , initialize
+)
+
+
+
+# exportPattern("^[[:alpha:]]+")
+
+export(
+    sim_mc
+    , sim_pcfilter
+    , mf_order
+    , mf_period
+    , mf_poles
+    , mf_VSform
+
+    , mc_eigen
+    , mc_eigenvalues
+    , mc_factors
+
+    , chain_ind
+    , spec_seeds1
+    , from_Jordan
+    , mcStable
+    , Jordan_matrix
+    , mc.0chain.complete
+    , mc.0chain.dx
+    , mc.0chain.struct
+    , mc.0chain.structfill
+    , reduce_chains_simple #  mc.0chain.transf
+    , mc_chains_triangulate # mc.0chain.triang
+    , chains_to_list # mc_chain_to_list
+    , mc_chain_merge
+    , mc_chain_scale
+    , mc_chain_subset
+
+    , make_mcmatrix
+    , make_mcev
+    , make_mcchains
+    , make_mcgev
+    , is_mc_bottom
+    , mC.non0chain.extend
+    , mc_0chains
+    , mc_chain_extend
+    , mc_factorize
+    , mc_from_factors
+    , mc_from_filter
+    , mc_full
+    , mc_leftc
+    , mc_matrix
+    , mCompanion
+    , mc_order
+    , sim_mcseeds
+    , mcSpec
+    , rblockmult
+    , spec_root0
+    , spec_root1
+    , VAR2pcfilter
+
+    ## recent and transient:
+    , spec_core
+    , null_complement
+
+    , permute_var
+  , permute_synch
+
+  ## , smc_chains
+  , sim_chains
+  ## , Jordan_submatrix
+  ## , smc_0chain_transformed
+    , JordanDecomposition
+)
+
+
