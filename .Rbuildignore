@@ -1,3 +1,4 @@
+.rsync_exclude
 ^tests/testthat/.RData
 ^Org/
 ^Org$
