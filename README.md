@@ -21,8 +21,8 @@ Package "mcompanion" provides a class for multi-companion matrices with methods
 for arithmetic and factorization.  A method for generation of multi-companion
 matrices with prespecified spectral properties is provided, as well as some
 utilities for periodically correlated and multivariate time series models. See
-Boshnakov (2002) <doi:10.1016/S0024-3795(01)00475-X> and Boshnakov & Iqelan
-(2009) <doi:10.1111/j.1467-9892.2009.00617.x>.
+[Boshnakov (2002)](https://dx.doi.org/10.1016/S0024-3795(01)00475-X) and
+[Boshnakov & Iqelan (2009)](https://dx.doi.org/10.1111/j.1467-9892.2009.00617.x).
 
 Package "mcompanion" implements multi-companion matrices as discussed by
 Boshnakov (2002) and Boshnakov and Iqelan (2009).  The main feature is the
