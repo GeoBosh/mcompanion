@@ -9,10 +9,10 @@
 mc_factors(x, what = "mc")
 }
 \arguments{
-  \item{x}{ a multi-companion matrix, an object of class
-    \code{MultiCompanion}. }
-
-  \item{what}{format of the result, see below}
+  \item{x}{
+    a multi-companion matrix, an object of class \code{MultiCompanion}.
+  }
+  \item{what}{format of the result, see below.}
 }
 \details{
 

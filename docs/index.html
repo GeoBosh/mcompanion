@@ -77,13 +77,25 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-    Provides a class for multi-companion matrices with methods for
-    arithmetic and factorization.  A method for generation of
-    multi-companion matrices with prespecified spectral properties is
-    provided, as well as some utilities for periodically correlated and
-    multivariate time series models. See Boshnakov (2002)
-    &lt;<a href="https://doi.org/10.1016/S0024-3795(01)00475-X">doi:10.1016/S0024-3795(01)00475-X</a>&gt; and Boshnakov &amp; Iqelan (2009)
-    &lt;<a href="https://doi.org/10.1111/j.1467-9892.2009.00617.x">doi:10.1111/j.1467-9892.2009.00617.x</a>&gt;.
+
+<div id="installing-mcompanion" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#installing-mcompanion" class="anchor"></a>Installing mcompanion</h1></div>
+<p>The <a href="https://cran.r-project.org/package=mcompanion">latest stable version</a> is on CRAN.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"mcompanion"</span>)</a></code></pre></div>
+<p>You can install the <a href="https://github.com/GeoBosh/mcompanion">development version</a> of <code>mcompanion</code> from Github:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(devtools)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"GeoBosh/mcompanion"</span>)</a></code></pre></div>
+</div>
+<div id="overview" class="section level1">
+<h1 class="hasAnchor">
+<a href="#overview" class="anchor"></a>Overview</h1>
+<p>Package “mcompanion” provides a class for multi-companion matrices with methods for arithmetic and factorization. A method for generation of multi-companion matrices with prespecified spectral properties is provided, as well as some utilities for periodically correlated and multivariate time series models. See Boshnakov (2002) <a href="doi:10.1016/S0024-3795(01)00475-X" class="uri">doi:10.1016/S0024-3795(01)00475-X</a> and Boshnakov &amp; Iqelan</p>
+<p>(2009) <a href="doi:10.1111/j.1467-9892.2009.00617.x" class="uri">doi:10.1111/j.1467-9892.2009.00617.x</a>.</p>
+<p>Package “mcompanion” implements multi-companion matrices as discussed by Boshnakov (2002) and Boshnakov and Iqelan (2009). The main feature is the provided parsimonious parameterisation of such matrices based on their eigenvalues and the seeds for their eigenvectors. This can be used for specification and parameterisation of models for time series and dynamical systems in terms of spectral characteristics, such as the poles of the associated filters or transition matrices.</p>
+<p>See also <a href="https://geobosh.github.io/mcompanion/">the web site</a> of mcompanion.</p>
+</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -117,7 +129,13 @@
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=mcompanion"><img src="http://www.r-pkg.org/badges/version/mcompanion" alt="CRANStatusBadge"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 

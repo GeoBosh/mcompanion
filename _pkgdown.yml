@@ -24,7 +24,8 @@ reference:
       - mc_from_factors
       - mc_full
       - mc_order
-      - make_mcmatrix 
+      - make_mcmatrix
+      - make_mcev
   - title: "Simulation"
     contents:
       - matches("sim_")

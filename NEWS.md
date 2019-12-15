@@ -1,9 +1,12 @@
-# Version 0.5-0
+# Version 0.5-0 (CRAN)
 
 - `null_complement` now treats a numeric `m` as a matrix with one column in all
   cases.
 
 - removed a volatile test causing "Additional issues" on CRAN.
+
+- removed `sim_mcseeds()`, it had been superceded by `sim_chains()` for some
+  time.
 
 - doi for Boshnakov (2002) was pointing erroneously to Boshnakov (2007).
 

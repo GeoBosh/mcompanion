@@ -53,4 +53,4 @@ mCompanion(mc_from_factors(x))
 mc_from_filter(x)
 mCompanion(mc_from_filter(x))
 }
-\keyword{mcutil}
+\keyword{matrices}

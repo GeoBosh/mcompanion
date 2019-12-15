@@ -11,8 +11,8 @@ mc_leftc(x, mo, mo.col)
 }
 \arguments{
   \item{x}{ a multi-companion matrix or its top. }
-  \item{mo}{ multi-companion order, number of structural top rows }
-  \item{mo.col}{ number of non-trivial columns in the top of the matrix }
+  \item{mo}{ multi-companion order, number of structural top rows. }
+  \item{mo.col}{ number of non-trivial columns in the top of the matrix. }
 }
 \details{
   The companion factorization of a multi-companion matrix, \eqn{X}, of
@@ -35,12 +35,19 @@ mc_leftc(x, mo, mo.col)
   matrix and the multi-companion order is set to its number of rows.
 
   \code{mo.col} defaults to the number of columns of \code{x}.
+  It is important to specify \code{mo.col} if there are columns of
+  zeroes in the top of the matrix. Otherwise the factorisation usually
+  fails with a message (from \code{solve}) that the system is exactly
+  singular. Note however that for objects of class MultiCompanion this
+  situation is handled automatically (unless the user overwrites the
+  default behaviour).
 }
 \value{
-  for \code{mc_factorize} a matrix whose i-th row is the first row of
+  for \code{mc_factorize}, a matrix whose i-th row is the first row of
   the i-th companion factor.
 
-  for \code{mc_leftc} a numeric vector containing the first row of the companion factor.
+  for \code{mc_leftc}, a numeric vector containing the first row of the
+  companion factor. 
 }
 \references{%
     % bibentry: boshnakov2002mc
@@ -60,13 +67,6 @@ ISSN 0024-3795, \url{http://dx.doi.org/10.1016/S0024-3795(01)00475-X}.
   Also, if \code{mo.col} is smaller than the number of columns, then the
   factorisation is not unique, the one having \code{mo.col} non-zero
   entries is computed.   The existence is not treated.
-
-  It is important to specify \code{mo.col} if there are columns of
-  zeroes in the top of the matrix. Otherwise the factorisation usually
-  fails with a message (from \code{solve}) that the system is exactly
-  singular. Note however that for objects of class MultiCompanion this
-  situation is handled automatically (unless the user overwrites the
-  default behaviour).
 
   \code{mc_leftc} is probably the first function I wrote for
   multi-companion matrices. It does not do checks consistently. The

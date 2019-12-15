@@ -26,7 +26,7 @@ sim_mc(dim, mo, mo.col = dim, eigval, len.block, type.eigval = NULL,
   \item{value}{ what to return }
   \item{value.type}{  type of the value (???)}
   \item{\dots}{
-    further arguments to passed on to \code{sim_mcseeds} and
+    further arguments to passed on to \code{sim_chains} and
     \code{sim_numbers}, see Details.
   }
 }
@@ -99,7 +99,7 @@ sim_mc(dim, mo, mo.col = dim, eigval, len.block, type.eigval = NULL,
 
   Generators other than the default ones may be specified in the
   \code{...}  argument. These are passed to \code{sim_numbers} and
-  \code{sim_mcseeds}.  Again, for the "co" arguments the support
+  \code{sim_chains}.  Again, for the "co" arguments the support
   is not finished.
 
 }
@@ -135,8 +135,8 @@ ISSN 0143-9782, \url{http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x}.
 \seealso{
 
   \code{gbutils::sim_numbers} and
-  \code{\link{sim_mcseeds}} for arguments that control the distributions of
-  the random numbers.
+  \code{\link{sim_chains}} for arguments that control the
+  distributions of the random numbers.
 
   \code{\link{make_mcmatrix}} creates the matrix.
 

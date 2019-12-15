@@ -129,11 +129,11 @@
     </tr>
     <tr>
       <th>mo</th>
-      <td><p>multi-companion order, number of structural top rows</p></td>
+      <td><p>multi-companion order, number of structural top rows.</p></td>
     </tr>
     <tr>
       <th>mo.col</th>
-      <td><p>number of non-trivial columns in the top of the matrix</p></td>
+      <td><p>number of non-trivial columns in the top of the matrix.</p></td>
     </tr>
     </table>
 
@@ -153,12 +153,19 @@
 <p><code>x</code> may be the whole matrix or its top.
   If <code>mo</code> is missing <code>x</code> is assumed to be the top of the
   matrix and the multi-companion order is set to its number of rows.</p>
-<p><code>mo.col</code> defaults to the number of columns of <code>x</code>.</p>
+<p><code>mo.col</code> defaults to the number of columns of <code>x</code>.
+  It is important to specify <code>mo.col</code> if there are columns of
+  zeroes in the top of the matrix. Otherwise the factorisation usually
+  fails with a message (from <code>solve</code>) that the system is exactly
+  singular. Note however that for objects of class MultiCompanion this
+  situation is handled automatically (unless the user overwrites the
+  default behaviour).</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>for <code>mc_factorize</code> a matrix whose i-th row is the first row of
+    <p>for <code>mc_factorize</code>, a matrix whose i-th row is the first row of
   the i-th companion factor.</p>
-<p>for <code>mc_leftc</code> a numeric vector containing the first row of the companion factor.</p>
+<p>for <code>mc_leftc</code>, a numeric vector containing the first row of the
+  companion factor.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p><!-- % -->
@@ -178,12 +185,6 @@ ISSN 0024-3795, <a href='http://dx.doi.org/10.1016/S0024-3795(01)00475-X'>http:/
 <p>Also, if <code>mo.col</code> is smaller than the number of columns, then the
   factorisation is not unique, the one having <code>mo.col</code> non-zero
   entries is computed.   The existence is not treated.</p>
-<p>It is important to specify <code>mo.col</code> if there are columns of
-  zeroes in the top of the matrix. Otherwise the factorisation usually
-  fails with a message (from <code>solve</code>) that the system is exactly
-  singular. Note however that for objects of class MultiCompanion this
-  situation is handled automatically (unless the user overwrites the
-  default behaviour).</p>
 <p><code>mc_leftc</code> is probably the first function I wrote for
   multi-companion matrices. It does not do checks consistently. The
   MultiCompanion class can be used here.</p>

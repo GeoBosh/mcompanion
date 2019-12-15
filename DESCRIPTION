@@ -2,7 +2,7 @@ Package: mcompanion
 Type: Package
 Title: Objects and Methods for Multi-Companion Matrices
 Version: 0.5-0
-Date: 2019-12-13
+Date: 2019-12-15
 Authors@R: person(given = c("Georgi", "N."), family = "Boshnakov", 
                   role = c("aut", "cre"), 
                   email = "georgi.boshnakov@manchester.ac.uk") 
@@ -20,3 +20,15 @@ Imports: methods, Matrix, gbutils, MASS, Rdpack
 Suggests: testthat
 RdMacros: Rdpack
 License: GPL (>= 2)
+Collate:
+    mc.R
+    mcompanion.R
+    utils_Jordan.R
+    mat.R
+    sim.R
+    class_MC.R
+    class_MF.R
+    class_Jordan.R
+    chains_smc.R
+    class_SMC.R
+    class_mcSpec.R

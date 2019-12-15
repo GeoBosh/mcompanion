@@ -62,4 +62,4 @@ spec_seeds1(c(2,1,1,1), 4)
 spec_core(4, 1, c(2,1,1,1))$co
 spec_core(4, 1, c(2,1,1,1))$generators
 }
-\keyword{ multi-companion }
+\keyword{ mcspec }

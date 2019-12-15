@@ -82,7 +82,7 @@
 
   \subsection{Simulation}{
   \Sexpr[stage=build,results=rd]{lbpaste(
-    c("^sim_", "sim_mcseeds")
+    c("^sim_")
   )}
 
     }

@@ -61,9 +61,7 @@ properties.''
 ISSN 0143-9782, \url{http://doi.org/10.1111/j.1467-9892.2009.00617.x}.
 % end:bibentry:  boshnakov2009gen
 
-
 }
-
 \author{Georgi N. Boshnakov}
 \seealso{
   \code{\link{mc_eigen}};
@@ -71,5 +69,13 @@ ISSN 0143-9782, \url{http://doi.org/10.1111/j.1467-9892.2009.00617.x}.
   the main work is done by \code{\link{mC.non0chain.extend}} and
   \code{\link{mc_0chains}}.
 }
+\examples{
+ev <- make_mcchains(eigval = c(1, 0.5), co = cbind(c(1,1), c(1, -1)), dim = 4,
+              mo.col = 2,
+              len.block = c(1, 1))
+ev
+## extend evecs in ev to the requested dim and complete with chains for eval 0.
+mc_chain_extend(ev = ev, newdim = 6)
+mc_chain_extend(ev = ev, newdim = 7)
+}
 \keyword{matrices}
-\keyword{internal}

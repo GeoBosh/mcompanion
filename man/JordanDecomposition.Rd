@@ -117,4 +117,4 @@ JordanDecomposition(vectors = m)
 JordanDecomposition(values = rep(0,2), height = c(1,1))
 }
 \keyword{methods}
-\keyword{jordan}
+\keyword{matrices}

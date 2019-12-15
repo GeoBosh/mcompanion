@@ -15,41 +15,42 @@ mf_poles(x, blocks = FALSE)
 mf_VSform(x, first = 1, form = "U", perm)
 }
 \arguments{
-  \item{ x }{ the filter, an object of class  MultiFilter}
-  \item{ i }{ index, integer vector or a string }
-  \item{ first }{the first season of the year}
-  \item{ form }{ the form of the filter to which the result refers,
-                 one of "pc", "I", "U", or "L", see details
-	       }
-  \item{ perm }{permutation of the seasons within the year}
-  \item{ blocks }{ request lengths of Jordan chains}
-
+  \item{ x }{ the filter, an object of class  \code{"MultiFilter"}.}
+  \item{ i }{ index, integer vector or a string. }
+  \item{ first }{the first season of the year.}
+  \item{ form }{
+    the form of the filter to which the result refers,
+    one of "pc", "I", "U", or "L", see Details.
+  }
+  \item{ perm }{permutation of the seasons within the year.}
+  \item{ blocks }{ request lengths of Jordan chains.}
   \item{\dots}{ arguments to pass on.}
 }
 \value{
   For \code{mf_order},
-  if \code{i=="max"} a positive integer,
+  if \code{i = "max"} a positive integer,
   otherwise a vector  of positive integers.
 
   For \code{mf_period} the period of the filter, a positive integer.
 
   For \code{mf_poles},
-  if \code{blocks=FALSE}, a vector of the eigenvalues of the associated
+  if \code{blocks = FALSE}, a vector of the eigenvalues of the associated
   multi-companion matrix, each eigenvalue repeated according to its
   algebraic multiplicity.
-  If \code{blocks=TRUE}, a 2-column matrix with the eigenvalues in the
+  If \code{blocks = TRUE}, a 2-column matrix with the eigenvalues in the
   first column and the lengths of the  Jordan chains in the second.
   There is one row  for each  chain (i.e. multiple eigenvalues are
   repeated according to their geometric multiplicity).
 
-  For \code{mf_VSform} a list with components
-  \item{Phi0}{the zero lag coefficient, a matrix}
-  \item{Phi}{the remaining coefficients, a matrix}
-  \item{Phi0inv}{(\code{form=="I"} only) the inverse of the zero lag
-    coefficient matrix of the vs-form, a matrix. (\strong{TODO:} the
-  name of this component is misleading since in the case \code{form =
-  "I"} Phi0 is the identity matrix and \code{Phi0inv} is not equal to
-  the inverse of Phi0.)
+  For \code{mf_VSform} a list with components:
+  \item{Phi0}{the zero lag coefficient, a matrix,}
+  \item{Phi}{the remaining coefficients, a matrix,}
+  \item{Phi0inv}{
+    (\code{form=="I"} only) the inverse of the zero lag coefficient
+    matrix of the vs-form, a matrix. (\strong{TODO:} the name of this
+    component is misleading since in the case \code{form = "I"} Phi0 is
+    the identity matrix and \code{Phi0inv} is not equal to the inverse
+    of Phi0.)
   }
 }
 \details{
@@ -105,8 +106,7 @@ mf_VSform(x, first = 1, form = "U", perm)
 
   todo: (2013-03-26) \code{mf_order} seems unfinished.
 }
-%\references{
-%}
+\author{Georgi N. Boshnakov}
 \references{%
     % bibentry: boshnakov2002mc
 Boshnakov GN (2002).
@@ -179,5 +179,4 @@ rcond(rfi$mat)
 Matrix::rcond(Matrix::Matrix(rfi$mat),"O")
 1/Matrix::rcond(Matrix::Matrix(rfi$mat),"O")
 }
-\author{Georgi N. Boshnakov}
 \keyword{ ts }

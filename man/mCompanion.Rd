@@ -13,28 +13,31 @@ mCompanion(x, detect = "nothing", misc = list(), \dots)
            detect = "nothing", misc = list())
 }
 \arguments{
-  \item{x}{ the matrix; for mCompanion only \code{x} may be the
-    top of the matrix or a character string, see details }
-  \item{misc}{information to be stored in the object's pad}
-  \item{\dots}{ other arguments to be passed down to generator
-    functions, see details }
-
+  \item{x}{
+    the matrix; for mCompanion only \code{x} may be the top of the
+    matrix or a character string, see Details.
+  }
+  \item{misc}{information to be stored in the object's pad.}
+  \item{\dots}{
+    other arguments to be passed down to generator functions, see
+    Details.
+  }
   \item{xtop}{ the top of the matrix. }
   \item{mo}{ the multi-companion order of the matrix. }
-  \item{n}{ the dimension }
-
-  \item{mo.col}{ the top order, meaniing that columns mo.col+1,...,n of
-    the top of the matrix are zeros. \code{mo.col} may also be set to
-    "detect", in which case it is determined by scanning \code{xtop} or
-    \code{x}. }
-
+  \item{n}{ the dimension. }
+  \item{mo.col}{
+    the top order, meaniing that columns mo.col+1,...,n of the top of
+    the matrix are zeros. \code{mo.col} may also be set to "detect", in
+    which case it is determined by scanning \code{xtop} or \code{x}.
+  }
   \item{ido}{ the dimension of the identity sub-matrix. }
   \item{dimnames}{ is not used currently. }
-
-  \item{detect}{ controls whether automatic detection of \code{mo} and
-    \code{mo.col} should be attempted. The values tested are "mo",
-    "mo.col", "all", and "nothing" with obvious meanings. }
-  \item{.Object}{this is set implicitly by package "methods".}
+  \item{detect}{
+    controls whether automatic detection of \code{mo} and \code{mo.col}
+    should be attempted. The values tested are "mo", "mo.col", "all",
+    and "nothing" with obvious meanings.
+  }
+  \item{.Object}{this is set implicitly by package "methods". }
 }
 \details{
   The argument \code{x} may be the string "sim" or "gen". In this case

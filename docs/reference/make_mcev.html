@@ -149,15 +149,20 @@
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>make_mcev</code> computes an eigenvector for a multi-companion (dim
-  x dim) matrix by filling its top or bottom part with <code>co</code> and
-  completing the remaining elements using the general pattern of
-  eigenvectors of such matrices.</p>
+    
+  
+<p><code>make_mcev</code> computes an eigenvector for a multi-companion
+  <code>dim x dim</code> matrix by filling its top or bottom part with
+  <code>co</code> and completing the remaining elements using the general
+  pattern of eigenvectors of such matrices
+  (Boshnakov 2002)
+.</p>
 <p>Similarly, <code>make_mcgev</code> computes the next generalised
   eigenvector in a chain whose previous element is <code>v</code>.</p>
-<p><code>what.co</code> cannot be "top" if the eigenvalue is 0. Generalised
-  eigenvectors corresponding to the zero eigenvalue have some specifics,
-  so it is better to use the specialised functions in that case.</p>
+<p><code>what.co</code> cannot be <code>"top"</code> if the eigenvalue is
+  0. Generalised eigenvectors corresponding to the zero eigenvalue have
+  some specifics, so it is better to use the specialised functions in
+  that case.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>make_mcev</code> returns the required eigenvector.</p>
@@ -171,6 +176,11 @@ Boshnakov GN (2002).
 ISSN 0024-3795, <a href='http://doi.org/10.1016/S0024-3795(01)00475-X'>http://doi.org/10.1016/S0024-3795(01)00475-X</a>.
 <!-- % end:bibentry:  boshnakov2002mc --></p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>v1</span> <span class='kw'>&lt;-</span> <span class='fu'>make_mcev</span>(<span class='fl'>0.5</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>4</span>)
+<span class='no'>v1</span></div><div class='output co'>#&gt; [1] 0.5 0.5 1.0 1.0</div><div class='input'><span class='fu'>make_mcev</span>(<span class='fl'>0.5</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>what.co</span> <span class='kw'>=</span> <span class='st'>"top"</span>)</div><div class='output co'>#&gt; [1] 1 1 2 2</div><div class='input'>
+<span class='no'>v2</span> <span class='kw'>&lt;-</span> <span class='fu'>make_mcgev</span>(<span class='fl'>0.5</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>v</span> <span class='kw'>=</span> <span class='no'>v1</span>, <span class='kw'>what.co</span> <span class='kw'>=</span> <span class='st'>"top"</span>)
+<span class='no'>v2</span></div><div class='output co'>#&gt; [1]  0  1 -2  0</div><div class='input'><span class='fu'>make_mcgev</span>(<span class='fl'>0.5</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>v</span> <span class='kw'>=</span> <span class='no'>v2</span>, <span class='kw'>what.co</span> <span class='kw'>=</span> <span class='st'>"top"</span>)</div><div class='output co'>#&gt; [1] 0 1 4 2</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -179,6 +189,7 @@ ISSN 0024-3795, <a href='http://doi.org/10.1016/S0024-3795(01)00475-X'>http://do
       <li><a href="#details">Details</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#references">References</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
     <h2>Author</h2>

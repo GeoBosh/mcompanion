@@ -21,7 +21,7 @@ reduce_chains_simple(chains, sort = TRUE)
   eigenvectors are removed. In the process, the heights of some chains
   may decrease and the number of chains may be reduced, too.
 
-  If \code{sort==TRUE} the function reorders the chains so that their
+  If \code{sort == TRUE} the function reorders the chains so that their
   lengths are in decreasing order.  However, the algorithm depends on
   this being done, so this argument should be used when the chains are
   known to be already sorted.

@@ -127,28 +127,28 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th> x </th>
-      <td><p>the filter, an object of class  MultiFilter</p></td>
+      <td><p>the filter, an object of class  <code>"MultiFilter"</code>.</p></td>
     </tr>
     <tr>
       <th> i </th>
-      <td><p>index, integer vector or a string</p></td>
+      <td><p>index, integer vector or a string.</p></td>
     </tr>
     <tr>
       <th> first </th>
-      <td><p>the first season of the year</p></td>
+      <td><p>the first season of the year.</p></td>
     </tr>
     <tr>
       <th> form </th>
       <td><p>the form of the filter to which the result refers,
-                 one of "pc", "I", "U", or "L", see details</p></td>
+    one of "pc", "I", "U", or "L", see Details.</p></td>
     </tr>
     <tr>
       <th> perm </th>
-      <td><p>permutation of the seasons within the year</p></td>
+      <td><p>permutation of the seasons within the year.</p></td>
     </tr>
     <tr>
       <th> blocks </th>
-      <td><p>request lengths of Jordan chains</p></td>
+      <td><p>request lengths of Jordan chains.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -159,25 +159,25 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>For <code>mf_order</code>,
-  if <code>i=="max"</code> a positive integer,
+  if <code>i = "max"</code> a positive integer,
   otherwise a vector  of positive integers.</p>
 <p>For <code>mf_period</code> the period of the filter, a positive integer.</p>
 <p>For <code>mf_poles</code>,
-  if <code>blocks=FALSE</code>, a vector of the eigenvalues of the associated
+  if <code>blocks = FALSE</code>, a vector of the eigenvalues of the associated
   multi-companion matrix, each eigenvalue repeated according to its
   algebraic multiplicity.
-  If <code>blocks=TRUE</code>, a 2-column matrix with the eigenvalues in the
+  If <code>blocks = TRUE</code>, a 2-column matrix with the eigenvalues in the
   first column and the lengths of the  Jordan chains in the second.
   There is one row  for each  chain (i.e. multiple eigenvalues are
   repeated according to their geometric multiplicity).</p>
-<p>For <code>mf_VSform</code> a list with components</p>
-<dt>Phi0</dt><dd><p>the zero lag coefficient, a matrix</p></dd>
-  <dt>Phi</dt><dd><p>the remaining coefficients, a matrix</p></dd>
-  <dt>Phi0inv</dt><dd><p>(<code>form=="I"</code> only) the inverse of the zero lag
-    coefficient matrix of the vs-form, a matrix. (<strong>TODO:</strong> the
-  name of this component is misleading since in the case <code>form =
-  "I"</code> Phi0 is the identity matrix and <code>Phi0inv</code> is not equal to
-  the inverse of Phi0.)</p></dd>
+<p>For <code>mf_VSform</code> a list with components:</p>
+<dt>Phi0</dt><dd><p>the zero lag coefficient, a matrix,</p></dd>
+  <dt>Phi</dt><dd><p>the remaining coefficients, a matrix,</p></dd>
+  <dt>Phi0inv</dt><dd><p>(<code>form=="I"</code> only) the inverse of the zero lag coefficient
+    matrix of the vs-form, a matrix. (<strong>TODO:</strong> the name of this
+    component is misleading since in the case <code>form = "I"</code> Phi0 is
+    the identity matrix and <code>Phi0inv</code> is not equal to the inverse
+    of Phi0.)</p></dd>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -460,16 +460,16 @@ ISSN 0143-9782, <a href='http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x'>htt
 #&gt;         sklad
 #&gt;     else sklad[[x]]
 #&gt; }
-#&gt; &lt;bytecode: 0x55f83bc8df40&gt;
-#&gt; &lt;environment: 0x55f8423b10a0&gt;
+#&gt; &lt;bytecode: 0x559aa3d32190&gt;
+#&gt; &lt;environment: 0x559aa5fd4f90&gt;
 #&gt; 
 #&gt; [[2]]
 #&gt; function (x, value) 
 #&gt; {
 #&gt;     sklad[[x]] &lt;&lt;- value
 #&gt; }
-#&gt; &lt;bytecode: 0x55f83bc8dbf8&gt;
-#&gt; &lt;environment: 0x55f8423b10a0&gt;
+#&gt; &lt;bytecode: 0x559aa3d31e48&gt;
+#&gt; &lt;environment: 0x559aa5fd4f90&gt;
 #&gt; 
 #&gt; attr(,"x")
 #&gt; [1]  0.3250209 -2.8497100  1.0000000  0.1834929  0.1817373  0.0000000  0.1345848
@@ -504,16 +504,16 @@ ISSN 0143-9782, <a href='http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x'>htt
 #&gt;         sklad
 #&gt;     else sklad[[x]]
 #&gt; }
-#&gt; &lt;bytecode: 0x55f83bc8df40&gt;
-#&gt; &lt;environment: 0x55f842448678&gt;
+#&gt; &lt;bytecode: 0x559aa3d32190&gt;
+#&gt; &lt;environment: 0x559aa60839b0&gt;
 #&gt; 
 #&gt; [[2]]
 #&gt; function (x, value) 
 #&gt; {
 #&gt;     sklad[[x]] &lt;&lt;- value
 #&gt; }
-#&gt; &lt;bytecode: 0x55f83bc8dbf8&gt;
-#&gt; &lt;environment: 0x55f842448678&gt;
+#&gt; &lt;bytecode: 0x559aa3d31e48&gt;
+#&gt; &lt;environment: 0x559aa60839b0&gt;
 #&gt; 
 #&gt; attr(,"x")
 #&gt; [1]  0.3250209 -2.8497100  1.0000000  0.1834929  0.1817373  0.0000000  0.1345848

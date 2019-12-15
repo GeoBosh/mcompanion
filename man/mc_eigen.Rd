@@ -11,8 +11,10 @@ mc_eigen(x, ...)
 mc_eigenvalues(x, ...)
 }
 \arguments{
-  \item{x}{ a multi-companion matrix, an object of class MultiCompanion }
-  \item{\dots}{additional arguments, currently not used }
+  \item{x}{
+    a multi-companion matrix, an object of class MultiCompanion.
+  }
+  \item{\dots}{additional arguments, currently not used. }
 }
 \details{
 

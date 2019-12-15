@@ -11,10 +11,13 @@
 mc_chain_scale(ev, subset = NULL, fvec = NULL, fchain = NULL)
 }
 \arguments{
-  \item{ev}{the eigenvectors, a list with elements eigvec, len.block. }
+  \item{ev}{
+    the eigenvectors, a list with elements \code{"eigvec"},
+    \code{"len.block"}.
+  }
      % \item{how}{ Not used currently, the action taken makes the largest
      %   bottom parameters equal to 1. }
-  \item{subset}{subset of the eigenvector to examine, a string or a
+  \item{subset}{subset of the eigenvectors to examine, a string or a
     vector of integers suitable for indexing.}
   \item{fvec}{a function for the computation of the normailising factor,
     see Details.}
@@ -23,7 +26,7 @@ mc_chain_scale(ev, subset = NULL, fvec = NULL, fchain = NULL)
 }
 \details{
 
-  All vector in the chain are scaled by the same factor.
+  All vectors in the chain are scaled by the same factor.
 
   The factor is determined so that the seeding coefficient with the
   maximal modulus becomes equal to one. By default the seeding
@@ -48,3 +51,7 @@ mc_chain_scale(ev, subset = NULL, fvec = NULL, fchain = NULL)
 \author{Georgi N. Boshnakov}
 \keyword{mcchain}
 \keyword{internal}
+
+
+
+

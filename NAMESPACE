@@ -73,7 +73,6 @@ export(
     , mc_matrix
     , mCompanion
     , mc_order
-    , sim_mcseeds
     , mcSpec
     , rblockmult
     , spec_root0
@@ -93,5 +92,3 @@ export(
   ## , smc_0chain_transformed
     , JordanDecomposition
 )
-
-
