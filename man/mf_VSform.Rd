@@ -24,7 +24,6 @@ mf_VSform(x, first = 1, form = "U", perm)
   }
   \item{ perm }{permutation of the seasons within the year.}
   \item{ blocks }{ request lengths of Jordan chains.}
-  \item{\dots}{ arguments to pass on.}
 }
 \value{
   For \code{mf_order},

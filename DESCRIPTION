@@ -1,8 +1,8 @@
 Package: mcompanion
 Type: Package
 Title: Objects and Methods for Multi-Companion Matrices
-Version: 0.5-1
-Date: 2019-12-18
+Version: 0.5-2
+Date: 2020-02-05
 Authors@R: person(given = c("Georgi", "N."), family = "Boshnakov", 
                   role = c("aut", "cre"), 
                   email = "georgi.boshnakov@manchester.ac.uk") 

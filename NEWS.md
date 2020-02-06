@@ -1,3 +1,8 @@
+# Version 0.5-2 (CRAN)
+
+- remove description of unused argument "..." in "./man/mf_VSform.Rd".
+
+
 # Version 0.5-1 (CRAN)
 
 - Built it under R-3.5.2 to avoid installation error on R old release (3.5.2 and
