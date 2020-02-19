@@ -1,3 +1,9 @@
+# Version 0.5-3 (CRAN)
+
+- building the pdf manual was failing on R old release (3.5.2 and 3.5.3).
+  Fixed by building the package under R-3.5.2.
+
+
 # Version 0.5-2 (CRAN)
 
 - remove description of unused argument "..." in "./man/mf_VSform.Rd".
@@ -7,6 +13,7 @@
 
 - Built it under R-3.5.2 to avoid installation error on R old release (3.5.2 and
   3.5.3).
+
 
 # Version 0.5-0 (CRAN)
 

@@ -1,3 +1,32 @@
+* mcompanion v0.5-2
+
+The same error (see section "mcompanion v0.5-0" below) necessitated rebuilding mcompanion
+v0.5-2 under R-3.5.2 and submitting as v0.5-3.
+#+BEGIN_EXAMPLE
+    using R version 3.5.3 (2019-03-11)
+    using platform: x86_64-w64-mingw32 (64-bit)
+    using session charset: ISO8859-1
+    checking for file 'mcompanion/DESCRIPTION' ... OK
+    checking extension type ... Package
+    this is package 'mcompanion' version '0.5-2'
+    checking package namespace information ... OK
+    checking package dependencies ... OK
+    checking if this is a source package ... OK
+
+    ...
+
+    checking PDF version of manual ... ERROR
+    Rd conversion errors:
+    Error in if (isBlankLineRd(x)) "\n" else if (identical(start, 1L)) psub("^\\s+", :
+      missing value where TRUE/FALSE needed
+    DONE
+
+Status: 1 ERROR
+#+END_EXAMPLE
+
+
+* mcompanion v0.5-0
+
 CRAN Package Check Results for Package mcompanion
 
 Last updated on 2019-12-17 10:49:14 CET.
