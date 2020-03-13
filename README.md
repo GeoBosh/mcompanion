@@ -1,4 +1,6 @@
 [![CRANStatusBadge](http://www.r-pkg.org/badges/version/mcompanion)](https://cran.r-project.org/package=mcompanion)
+[![Build Status](https://travis-ci.com/GeoBosh/mcompanion.svg?branch=master)](https://travis-ci.com/GeoBosh/mcompanion)
+[![Coverage Status](https://coveralls.io/repos/github/GeoBosh/mcompanion/badge.svg?branch=master)](https://coveralls.io/github/GeoBosh/mcompanion?branch=master)
 
 
 
