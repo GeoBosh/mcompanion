@@ -33,5 +33,7 @@ test_that("class JordanDecomposition and SmallMultiCompanion are ok", {
 
     JordanDecomposition(smc1)
 
+    as(smc1, "matrix")
+    as.matrix(smc1)
 })
 

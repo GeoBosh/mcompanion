@@ -58,6 +58,12 @@ test_that("JordanDecomposition() is equivalent to new()", {
     f(values = rep(0,2), vectors = matrix(c(1, 0, 1, 1),    ncol = 2), heights = c(1, 1))
     f(values = rep(0,2), vectors = matrix(c(1, 0.5, 1, 1),  ncol = 2), heights = c(1, 1))
     f(values = rep(0,2), vectors = matrix(c(1i, 0.5, 1, 1), nrow = 2), heights = c(1, 1))
+
+    JordanDecomposition()
+
+    JordanDecomposition(heights = c(1, 1))
+    ## TODO: this currently gives error, correct
+    ## JordanDecomposition(heights = c(1, 2))
 })
 
 

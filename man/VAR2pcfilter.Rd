@@ -143,6 +143,6 @@ flt2 <- VAR2pcfilter(I1$Phi, Sigma = I1$Phi0inv \%*\% t(I1$Phi0inv))
 
 ## confirm that we are back to the original
 ##   (VAR2pcfilter doesn't drop redundant zeroes, so we do it manually)
-all.equal(flt2[ , 1:3], rfi$pcfilter) ## TRUE
+    all.equal(flt2[ , 1:3], rfi$pcfilter) ## TRUE
 }
 \keyword{ts}
