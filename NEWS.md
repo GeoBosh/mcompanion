@@ -1,3 +1,8 @@
+# Version 0.5-4
+
+- added further tests.
+
+
 # Version 0.5-3 (CRAN)
 
 - building the pdf manual was failing on R old release (3.5.2 and 3.5.3).
