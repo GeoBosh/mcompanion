@@ -104,7 +104,7 @@
   \subsection{Low-level functions}{   %       "^mC[.]0.+", "^mC[.]non0.+",
   \Sexpr[stage=build,results=rd]{lbpaste(
     c("^mc[.]chain.*",
-      "^sim_mcseeds", "^mc_0chains", "mc_chain_extend"
+      "^mc_0chains", "mc_chain_extend"
     )
   )}
 
