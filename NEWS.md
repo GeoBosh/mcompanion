@@ -9,6 +9,8 @@
 - now all references use Rd macros (references inserted before the introduction
   of Rd macros were still using the old mechanism).
 
+- use Github actions, drop travisCI.
+
 
 # Version 0.5-3 (CRAN)
 
