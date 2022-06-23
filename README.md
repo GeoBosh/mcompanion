@@ -1,5 +1,5 @@
 [![CRANStatusBadge](http://www.r-pkg.org/badges/version/mcompanion)](https://cran.r-project.org/package=mcompanion)
-
+[![R-CMD-check](https://github.com/GeoBosh/mcompanion/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/GeoBosh/mcompanion/actions/workflows/R-CMD-check.yaml)
 
 
 
