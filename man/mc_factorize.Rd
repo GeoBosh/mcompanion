@@ -50,12 +50,7 @@ mc_leftc(x, mo, mo.col)
   companion factor. 
 }
 \references{%
-    % bibentry: boshnakov2002mc
-Boshnakov GN (2002).
-``Multi-companion matrices.''
-\emph{Linear Algebra Appl.}, \bold{354}, pp. 53--83.
-ISSN 0024-3795, \url{http://dx.doi.org/10.1016/S0024-3795(01)00475-X}.
-% end:bibentry:  boshnakov2002mc
+  \insertRef{boshnakov2002mc}{mcompanion}
 }
 \author{Georgi N. Boshnakov}
 \note{

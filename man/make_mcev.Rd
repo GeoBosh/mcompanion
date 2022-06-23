@@ -42,12 +42,7 @@ make_mcgev(eigval, co, v, what.co = "bottom")
   \code{make_mcgev} returns the required generalised eigenvector.
 }
 \references{
-  % bibentry: boshnakov2002mc
-Boshnakov GN (2002).
-``Multi-companion matrices.''
-\emph{Linear Algebra Appl.}, \bold{354}, pp. 53--83.
-ISSN 0024-3795, \url{http://doi.org/10.1016/S0024-3795(01)00475-X}.
-% end:bibentry:  boshnakov2002mc
+  \insertRef{boshnakov2002mc}{mcompanion}
 }
 \examples{
 v1 <- make_mcev(0.5, c(1, 1), dim = 4)

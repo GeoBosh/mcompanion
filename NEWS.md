@@ -2,6 +2,13 @@
 
 - added further tests.
 
+- add `lagged` to `Suggests` as it is used in some tests.
+
+- fixed `doi` links to use `\doi`.
+
+- now all references use Rd macros (references inserted before the introduction
+  of Rd macros were still using the old mechanism).
+
 
 # Version 0.5-3 (CRAN)
 

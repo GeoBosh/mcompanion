@@ -93,13 +93,9 @@ mcSpec(\dots)
   an object of class \code{mcSpec}
 }
 \references{
-% bibentry: boshnakov2002mc
+  \insertRef{boshnakov2002mc}{mcompanion}
 
-% end:bibentry:  boshnakov2009gen
-
-\insertRef{boshnakov2002mc}{mcompanion}
-
-\insertRef{boshnakov2009gen}{mcompanion}
+  \insertRef{boshnakov2009gen}{mcompanion}
 }
 \author{Georgi N. Boshnakov}
 \seealso{

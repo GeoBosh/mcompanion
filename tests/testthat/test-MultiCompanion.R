@@ -48,5 +48,25 @@ test_that("MultiCompanion initialisation works properly", {
     m <- mCompanion(matrix(1:8, nrow = 2))
     mc_factors(m)
 
+    ## 2020-03-21: some old testing examples from pcts (when mcompanion was part of pcts)
+    ##
+    ## parameters from 'm1_m2_phi_theta_new2.R'
+    ## see pcts/Org/rds/param_old_RData.rds for the full precision param
+    param <- c(1.0000000, 0.1049724, 0.4972376, 0.4972376)
+    m1 <- rbind(c(1, 0, 0), c(1, param[3:4]))
+    m2 <- rbind(c(1, 0, 0), c(1, 0, 0))
+    testphi <- lagged::slMatrix(init = m1)
+    testtheta <- lagged::slMatrix(init = m2)
     
+    mCompanion(m1[ , -1])
+    mCompanion(m1[ , -1], mo.col = 2)
+    mCompanion(m1[ , -1][2:1], mo.col = 2)
+    mCompanion(m1[ , -1][ , 2:1])
+    mCompanion(m1[ , -1][2:1, ])
+    
+    mc_from_factors(m1[ , -1][2:1, ])
+    mc_from_filter(m1[ , -1])
+    
+    eigen(mCompanion(m1[ , -1][2:1], mo.col = 2))
+    eigen(mc_from_filter(m1[ , -1]))
 })

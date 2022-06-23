@@ -46,21 +46,9 @@ mc_chain_extend(ev, newdim)
   The eigenvectors extended to the new dimension.
 }
 \references{%
-    % bibentry: boshnakov2002mc
-Boshnakov GN (2002).
-``Multi-companion matrices.''
-\emph{Linear Algebra Appl.}, \bold{354}, pp. 53--83.
-ISSN 0024-3795, \url{http://dx.doi.org/10.1016/S0024-3795(01)00475-X}.
-% end:bibentry:  boshnakov2002mc
-
-    % bibentry: boshnakov2009gen
-Boshnakov GN and Iqelan BM (2009).
-``Generation of time series models with given spectral
-properties.''
-\emph{J. Time Series Anal.}, \bold{30}(3), pp. 349--368.
-ISSN 0143-9782, \url{http://doi.org/10.1111/j.1467-9892.2009.00617.x}.
-% end:bibentry:  boshnakov2009gen
-
+  \insertRef{boshnakov2002mc}{mcompanion}
+  
+  \insertRef{boshnakov2009gen}{mcompanion}
 }
 \author{Georgi N. Boshnakov}
 \seealso{

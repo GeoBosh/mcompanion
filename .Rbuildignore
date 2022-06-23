@@ -12,3 +12,4 @@ _pkgdown.yml
 [^/]*[.]Rout$
 ^TechnicalDoc
 ^sav[0-9]*[.]Rhistory
+^\.github$
