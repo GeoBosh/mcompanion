@@ -177,37 +177,37 @@ ISSN 0143-9782, <a href="https://doi.org/10.1111/j.1467-9892.2009.00617.x" class
 <span class="r-in"><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="mCompanion.html">mCompanion</a></span><span class="op">(</span><span class="st">"sim"</span>,dim<span class="op">=</span><span class="fl">3</span>,mo<span class="op">=</span><span class="fl">2</span><span class="op">)</span>   <span class="co"># simulate a 3x3 2-comp. matrix</span></span>
 <span class="r-in"><span class="va">flt</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"MultiFilter"</span>, mc <span class="op">=</span> <span class="va">m</span> <span class="op">)</span></span>
 <span class="r-in"><span class="va">flt</span><span class="op">[</span><span class="op">]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]          [,3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -49.111473 22.6783069 -11.945487292</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]   0.452456 -0.2581503   0.007341509</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]         [,3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3042702 -0.1434453  0.007322051</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4183282 -0.1509952 -0.087361679</span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_period</a></span><span class="op">(</span><span class="va">flt</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_poles</a></span><span class="op">(</span><span class="va">flt</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.4445951+0.0000000i  0.3219845-0.3059076i  0.3219845+0.3059076i</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.19378304+0.00000000i  0.01331365-0.05588997i  0.01331365+0.05588997i</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="mf_VSform.html">mf_poles</a></span><span class="op">(</span><span class="va">flt</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.4445951 0.4441322 0.4441322</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.19378304 0.05745383 0.05745383</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_VSform</a></span><span class="op">(</span><span class="va">flt</span>,form<span class="op">=</span><span class="st">"U"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]      [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 -0.452456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0  1.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 0.4183282</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0 1.0000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             [,1]         [,2]      [,3] [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  -0.2581503  0.007341509   0.00000    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -49.1114733 22.678306885 -11.94549    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]        [,2]        [,3] [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.1509952 -0.08736168 0.000000000    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.3042702 -0.14344533 0.007322051    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_VSform</a></span><span class="op">(</span><span class="va">flt</span>,form<span class="op">=</span><span class="st">"L"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           [,1] [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  1.000000    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.452456    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 1.0000000    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.4183282    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              [,1]        [,2] [,3]      [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 22.678306885 -49.1114733    0 -11.94549</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.007341509  -0.2581503    0   0.00000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             [,1]       [,2] [,3]        [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.14344533 -0.3042702    0 0.007322051</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.08736168 -0.1509952    0 0.000000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_VSform</a></span><span class="op">(</span><span class="va">flt</span>,form<span class="op">=</span><span class="st">"I"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0</span>
@@ -216,14 +216,14 @@ ISSN 0143-9782, <a href="https://doi.org/10.1111/j.1467-9892.2009.00617.x" class
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]     [,2]       [,3] [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -22.47893 10.26828  -5.404808    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -49.11147 22.67831 -11.945487    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             [,1]        [,2]         [,3] [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.02371041 -0.02735445 -0.003063020    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.30427018 -0.14344533  0.007322051    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0inv</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]     [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 0.452456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0 1.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]       [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 -0.4183282</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0  1.0000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"></span>
 <span class="r-in"></span>
@@ -233,36 +233,36 @@ ISSN 0143-9782, <a href="https://doi.org/10.1111/j.1467-9892.2009.00617.x" class
 <span class="r-in"><span class="va">flt1</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"MultiFilter"</span>,mc<span class="op">=</span>  <span class="fu"><a href="mCompanion.html">mCompanion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/zapsmall.html" class="external-link">zapsmall</a></span><span class="op">(</span><span class="va">rfi</span><span class="op">$</span><span class="va">mat</span><span class="op">)</span><span class="op">)</span> <span class="op">)</span></span>
 <span class="r-in"><span class="va">flt1</span><span class="op">[</span><span class="op">]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  3.9793610  0.2235920  0.1396580</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.1444028 -0.2220473 -0.0163657</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -2.1463006  0.2738594 -0.1005314</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.1807873 -0.3621322  0.0362033</span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_period</a></span><span class="op">(</span><span class="va">flt1</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_poles</a></span><span class="op">(</span><span class="va">flt1</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.51220893+0.00000000i -0.03043854+0.05946208i -0.03043854-0.05946208i</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.49761700+0.00000000i  0.01066015+0.08485491i  0.01066015-0.08485491i</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="mf_VSform.html">mf_poles</a></span><span class="op">(</span><span class="va">flt1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.51220893 0.06680002 0.06680002</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.4976170 0.0855219 0.0855219</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_VSform</a></span><span class="op">(</span><span class="va">flt1</span>,form<span class="op">=</span><span class="st">"U"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]      [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 0.1444028</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0 1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]       [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 -0.1807873</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0  1.0000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]     [,3] [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.2220473 -0.0163657 0.000000    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  3.9793610  0.2235920 0.139658    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]      [,2]       [,3] [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3621322 0.0362033  0.0000000    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -2.1463006 0.2738594 -0.1005314    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_VSform</a></span><span class="op">(</span><span class="va">flt1</span>,form<span class="op">=</span><span class="st">"L"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1] [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 1.0000000    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.1444028    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1] [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  1.0000000    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.1807873    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2] [,3]     [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.2235920  3.9793610    0 0.139658</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.0163657 -0.2220473    0 0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]       [,2] [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.2738594 -2.1463006    0 -0.1005314</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.0362033 -0.3621322    0  0.0000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_VSform</a></span><span class="op">(</span><span class="va">flt1</span>,form<span class="op">=</span><span class="st">"I"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0</span>
@@ -271,50 +271,50 @@ ISSN 0143-9782, <a href="https://doi.org/10.1111/j.1467-9892.2009.00617.x" class
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3] [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.796678 -0.048653 -0.020167    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  3.979361  0.223592  0.139658    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]      [,2]       [,3] [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.7501561 0.0857136 -0.0181748    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -2.1463006 0.2738594 -0.1005314    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0inv</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]       [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 -0.1444028</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0  1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]      [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 0.1807873</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0 1.0000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># per. filter from coefficients, should be the same (numerically)</span></span>
 <span class="r-in"><span class="va">flt2</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"MultiFilter"</span>,coef<span class="op">=</span><span class="va">rfi</span><span class="op">$</span><span class="va">pcfilter</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">flt2</span><span class="op">[</span><span class="op">]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  3.9793610  0.2235923  0.13965819</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.1444053 -0.2220374 -0.01636554</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -2.1463006  0.2738594 -0.10053141</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.1807872 -0.3621324  0.03620327</span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_period</a></span><span class="op">(</span><span class="va">flt2</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_poles</a></span><span class="op">(</span><span class="va">flt2</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.51220465+0.000000i -0.03044064+0.059461i -0.03044064-0.059461i</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.49761716+0.00000000i  0.01066027+0.08485486i  0.01066027-0.08485486i</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="mf_VSform.html">mf_poles</a></span><span class="op">(</span><span class="va">flt2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.51220465 0.06680002 0.06680002</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.49761716 0.08552186 0.08552186</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_VSform</a></span><span class="op">(</span><span class="va">flt2</span>,form<span class="op">=</span><span class="st">"U"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]      [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 0.1444053</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0 1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]       [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 -0.1807872</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0  1.0000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]        [,2]      [,3] [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.2220374 -0.01636554 0.0000000    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  3.9793610  0.22359235 0.1396582    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3] [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3621324 0.03620327  0.0000000    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -2.1463006 0.27385944 -0.1005314    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_VSform</a></span><span class="op">(</span><span class="va">flt2</span>,form<span class="op">=</span><span class="st">"L"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1] [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 1.0000000    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.1444053    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1] [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  1.0000000    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.1807872    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             [,1]       [,2] [,3]      [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.22359235  3.9793610    0 0.1396582</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.01636554 -0.2220374    0 0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2] [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.27385944 -2.1463006    0 -0.1005314</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.03620327 -0.3621324    0  0.0000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="fu"><a href="mf_VSform.html">mf_VSform</a></span><span class="op">(</span><span class="va">flt2</span>,form<span class="op">=</span><span class="st">"I"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0</span>
@@ -323,14 +323,14 @@ ISSN 0143-9782, <a href="https://doi.org/10.1111/j.1467-9892.2009.00617.x" class
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]        [,2]        [,3] [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.7966783 -0.04865346 -0.02016739    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  3.9793610  0.22359235  0.13965819    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3] [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.7501561 0.08571355 -0.01817479    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -2.1463006 0.27385944 -0.10053141    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Phi0inv</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]       [,2]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 -0.1444053</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0  1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]      [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1 0.1807872</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    0 1.0000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"></span>
 </code></pre></div>

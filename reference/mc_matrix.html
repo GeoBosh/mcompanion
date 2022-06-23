@@ -163,66 +163,66 @@ ISSN 0024-3795, <a href="https://doi.org/10.1016/S0024-3795%2801%2900475-X" clas
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mc</span> <span class="op">&lt;-</span> <span class="fu"><a href="mCompanion.html">mCompanion</a></span><span class="op">(</span><span class="st">"sim"</span>, dim <span class="op">=</span> <span class="fl">4</span>, mo <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">mc</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 x 4 Matrix of class "MultiCompanion"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]       [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1908321 -1.410618 0.4544720 -0.5128823</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5328722 -1.294487 0.2881971 -0.3195662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 1.0000000  0.000000 0.0000000  0.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.0000000  1.000000 0.0000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3282513 -0.2541683 -0.02991156 -0.1341354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4315084 -0.3390291  0.13405262 -0.3991413</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  1.0000000  0.0000000  0.00000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.0000000  1.0000000  0.00000000  0.0000000</span>
 <span class="r-in"><span class="fu">mc_order</span><span class="op">(</span><span class="va">mc</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">mc</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="op">]</span>   <span class="co"># the top of mc</span></span>
 <span class="r-in"><span class="va">x</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 x 4 Matrix of class "dgeMatrix"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]       [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1908321 -1.410618 0.4544720 -0.5128823</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5328722 -1.294487 0.2881971 -0.3195662</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3282513 -0.2541683 -0.02991156 -0.1341354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4315084 -0.3390291  0.13405262 -0.3991413</span>
 <span class="r-in"><span class="va">x2</span> <span class="op">&lt;-</span> <span class="va">mc</span><span class="op">[</span><span class="op">]</span>      <span class="co"># whole mc as ordinary matrix</span></span>
 <span class="r-in"><span class="va">x2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 x 4 Matrix of class "MultiCompanion"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]       [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1908321 -1.410618 0.4544720 -0.5128823</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5328722 -1.294487 0.2881971 -0.3195662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 1.0000000  0.000000 0.0000000  0.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.0000000  1.000000 0.0000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3282513 -0.2541683 -0.02991156 -0.1341354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4315084 -0.3390291  0.13405262 -0.3991413</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  1.0000000  0.0000000  0.00000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.0000000  1.0000000  0.00000000  0.0000000</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">mc_matrix</span><span class="op">(</span><span class="va">mc</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]       [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1908321 -1.410618 0.4544720 -0.5128823</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5328722 -1.294487 0.2881971 -0.3195662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 1.0000000  0.000000 0.0000000  0.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.0000000  1.000000 0.0000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3282513 -0.2541683 -0.02991156 -0.1341354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4315084 -0.3390291  0.13405262 -0.3991413</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  1.0000000  0.0000000  0.00000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.0000000  1.0000000  0.00000000  0.0000000</span>
 <span class="r-in"><span class="fu">mc_matrix</span><span class="op">(</span><span class="va">x2</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]       [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1908321 -1.410618 0.4544720 -0.5128823</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5328722 -1.294487 0.2881971 -0.3195662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 1.0000000  0.000000 0.0000000  0.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.0000000  1.000000 0.0000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3282513 -0.2541683 -0.02991156 -0.1341354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4315084 -0.3390291  0.13405262 -0.3991413</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  1.0000000  0.0000000  0.00000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.0000000  1.0000000  0.00000000  0.0000000</span>
 <span class="r-in"><span class="co">## mc_matrix() doesn't append rows to its argument</span></span>
 <span class="r-in"><span class="fu">mc_matrix</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]       [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1908321 -1.410618 0.4544720 -0.5128823</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5328722 -1.294487 0.2881971 -0.3195662</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3282513 -0.2541683 -0.02991156 -0.1341354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4315084 -0.3390291  0.13405262 -0.3991413</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## mc_full() appends rows, to make the matrix square multicompanion</span></span>
 <span class="r-in"><span class="fu">mc_full</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]       [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1908321 -1.410618 0.4544720 -0.5128823</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5328722 -1.294487 0.2881971 -0.3195662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 1.0000000  0.000000 0.0000000  0.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.0000000  1.000000 0.0000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3282513 -0.2541683 -0.02991156 -0.1341354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4315084 -0.3390291  0.13405262 -0.3991413</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  1.0000000  0.0000000  0.00000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.0000000  1.0000000  0.00000000  0.0000000</span>
 <span class="r-in"><span class="co">## mc and x2 are square, so not amended:</span></span>
 <span class="r-in"><span class="fu">mc_full</span><span class="op">(</span><span class="va">mc</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]       [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1908321 -1.410618 0.4544720 -0.5128823</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5328722 -1.294487 0.2881971 -0.3195662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 1.0000000  0.000000 0.0000000  0.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.0000000  1.000000 0.0000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3282513 -0.2541683 -0.02991156 -0.1341354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4315084 -0.3390291  0.13405262 -0.3991413</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  1.0000000  0.0000000  0.00000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.0000000  1.0000000  0.00000000  0.0000000</span>
 <span class="r-in"><span class="fu">mc_full</span><span class="op">(</span><span class="va">x2</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]       [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1908321 -1.410618 0.4544720 -0.5128823</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.5328722 -1.294487 0.2881971 -0.3195662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 1.0000000  0.000000 0.0000000  0.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 0.0000000  1.000000 0.0000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]        [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.3282513 -0.2541683 -0.02991156 -0.1341354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4315084 -0.3390291  0.13405262 -0.3991413</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  1.0000000  0.0000000  0.00000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.0000000  1.0000000  0.00000000  0.0000000</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## a vector argument is treated as a matrix with 1 row:</span></span>
 <span class="r-in"><span class="fu">mc_matrix</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>

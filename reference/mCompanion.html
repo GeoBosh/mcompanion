@@ -168,30 +168,30 @@ ISSN 0143-9782, <a href="https://doi.org/10.1111/j.1467-9892.2009.00617.x" class
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># simulate a 6x6 mc matrix with 4 non-trivial rows</span></span>
 <span class="r-in"><span class="fu">mCompanion</span><span class="op">(</span><span class="st">"sim"</span>, dim <span class="op">=</span> <span class="fl">4</span>, mo <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 x 4 Matrix of class "MultiCompanion"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              [,1]       [,2]        [,3]        [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -1.132643592  0.1152089 -0.48598172  0.07988936</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.003265852 -0.5636874  0.03194558 -0.38225447</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  1.000000000  0.0000000  0.00000000  0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.000000000  1.0000000  0.00000000  0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             [,1]       [,2]       [,3]       [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.09868047 -0.6770668 0.01415695 -0.3374861</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.03822262 -0.8317252 0.05652548 -0.5956054</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  1.00000000  0.0000000 0.00000000  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.00000000  1.0000000 0.00000000  0.0000000</span>
 <span class="r-in"><span class="fu">mCompanion</span><span class="op">(</span><span class="st">"sim"</span>, dim <span class="op">=</span> <span class="fl">6</span>, mo <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6 x 6 Matrix of class "MultiCompanion"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]      [,3]      [,4]       [,5]         [,6]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.6462165 -0.3272613 0.2578921 0.1128295 -0.3287504 -0.001146575</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -2.4645209 -2.2604922 3.7591861 1.7095154 -1.0728399 -1.273208005</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] -0.7033698 -0.8043497 1.8348885 0.5057483 -0.3973732 -0.566562512</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -0.2342373 -1.5773813 2.0549546 1.0980651 -0.8525370 -0.512811969</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  1.0000000  0.0000000 0.0000000 0.0000000  0.0000000  0.000000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [6,]  0.0000000  1.0000000 0.0000000 0.0000000  0.0000000  0.000000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]      [,3]      [,4]       [,5]      [,6]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  1.047431  1.731137  2.045085  1.300551  0.3885415 -1.270021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -3.197206 -2.282992 -3.967505 -3.439399 -1.1653566  2.756278</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  4.561678  3.197679  5.698108  5.026837  1.7901598 -4.171871</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -4.760816 -3.139008 -6.215515 -5.029946 -1.7718559  4.431343</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  1.000000  0.000000  0.000000  0.000000  0.0000000  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6,]  0.000000  1.000000  0.000000  0.000000  0.0000000  0.000000</span>
 <span class="r-in"><span class="co"># similar to above but top rows with 2 non-zero columns</span></span>
 <span class="r-in"><span class="fu">mCompanion</span><span class="op">(</span><span class="st">"sim"</span>, dim <span class="op">=</span> <span class="fl">6</span>, mo <span class="op">=</span> <span class="fl">4</span>, mo.col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6 x 6 Matrix of class "MultiCompanion"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               [,1]       [,2] [,3] [,4] [,5] [,6]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.6954589518  0.7299449    0    0    0    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.0008831392 -0.6683963    0    0    0    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] -0.5716578020 46.2338905    0    0    0    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -1.9913072757 76.7960697    0    0    0    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  1.0000000000  0.0000000    0    0    0    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [6,]  0.0000000000  1.0000000    0    0    0    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]      [,2] [,3] [,4] [,5] [,6]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -5.4235747 70.884103    0    0    0    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.4420073  5.730602    0    0    0    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] -0.7519420  9.499033    0    0    0    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -0.9098274 12.430794    0    0    0    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  1.0000000  0.000000    0    0    0    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6,]  0.0000000  1.000000    0    0    0    0</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">24</span>, nrow <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">mCompanion</span><span class="op">(</span><span class="va">m1</span><span class="op">)</span>            <span class="co"># mc matrix with m1 on top</span></span>
