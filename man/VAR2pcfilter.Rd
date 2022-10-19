@@ -1,13 +1,24 @@
 \name{VAR2pcfilter}
 \alias{VAR2pcfilter}
 \title{PAR representations of VAR models}
-\description{Give the pc representation of a VAR model.}
+\description{
+  
+  Give the univariate periodic autoregression representation of a VAR
+  model. Several arrangements are supported as discussed by
+  \insertCite{boshnakov2009gen;textual}{mcompanion}. If the VAR model
+  contains unit roots on the unit circle, then the univariate model is
+  periodically integrated.
+  
+}
 \usage{
 VAR2pcfilter(phi, \dots, Sigma, Phi0, Phi0inv, D, what = "coef", perm)
 }
 \arguments{
   \item{phi}{VAR coefficients, a matrix, see Details.}
-  \item{\dots}{VAR coefficients, a matrix for each lag, see Details.}
+  \item{\dots}{
+    alternative way to specify the VAR coefficients by giving a matrix
+    for each lag in separate arguments, see section \sQuote{Details}.
+  }
   \item{Sigma}{covariance matrix of innovations.}
   \item{Phi0}{coefficient matrix at lag 0 (alternative to \code{Sigma}).}
   \item{Phi0inv}{inverse of \code{Phi0} (alternative to \code{Sigma} and
@@ -25,26 +36,26 @@ VAR2pcfilter(phi, \dots, Sigma, Phi0, Phi0inv, D, what = "coef", perm)
   \item{perm}{
     a permutation specifying the ordering of the variables when treated
     as ``seasons''. The default, \code{d:1}, corresponds to the U-form,
-    see Details.
+    see section \sQuote{Details}.
   }
 }
 \details{
 
-  \code{VAR2pcfilter} converts a VAR model to a scalar periodic autoregressive
-  (PAR) model. There are various ways to specify a VAR model and
-  associate its variables with seasons of the scalar representation,
-  see the reference for a detailed discussion and the terminology used
-  here.
+  \code{VAR2pcfilter} converts a VAR model to a scalar periodic
+  autoregressive (PAR) model. There are various ways to specify a VAR
+  model and associate its variables with seasons of the scalar
+  representation, see \insertCite{boshnakov2009gen;textual}{mcompanion}
+  for a detailed discussion and the terminology used here.
 
   % There is some flexibility in the model specification but in all cases,
 
   The VAR coefficients \code{phi,...} are those in the standard form of
-  the VAR model (see also the reference).  There are two ways to specify
-  them. The first is to put them side by side in a matrix \eqn{[\Phi_1,
-  \ldots, \Phi_p]} and give this matrix as argument
-  \code{phi}. Alternatively, the matrices \eqn{\Phi_i} may be given
-  directly as arguments to \code{VAR2pcfilter}, as in \code{VAR2pcfilter(Phi1, Phi2,
-  Phi3, Sigma = Sigma)}.
+  the VAR model \insertCite{@e.g., see @boshnakov2009gen}{mcompanion}.
+  There are two ways to specify them. The first is to put them side by
+  side in a matrix \eqn{[\Phi_1, \ldots, \Phi_p]} and give this matrix
+  as argument \code{phi}. Alternatively, the matrices \eqn{\Phi_i} may
+  be given directly as arguments to \code{VAR2pcfilter}, as in
+  \code{VAR2pcfilter(Phi1, Phi2, Phi3, Sigma = Sigma)}.
 
   The specification of the model can be completed by giving the
   covariance matrix, \code{Sigma}, of the innovations.  Alternatively,
@@ -56,18 +67,20 @@ VAR2pcfilter(phi, \dots, Sigma, Phi0, Phi0inv, D, what = "coef", perm)
   \code{Sigma} or \code{D} and one of \code{Phi0inv} and \code{Phi0}.
 
   \code{Phi0} can e interpreted as the coefficient at lag zero in the
-  U-form of the VAR model and \code{diag(D)} is the variance matrix of
-  the innovations in that form. \code{D} also gives the variances of the
-  innovations in the PAR form.
+  U-form \insertCite{boshnakov2009gen}{mcompanion} of the VAR model.
+  \code{diag(D)} is the variance matrix of the innovations in that
+  form. \code{D} also gives the variances of the innovations in the PAR
+  (periodic autoregression) form.
 
-  By default, \code{VAR2pcfilter} constructs the U-form of the VAR model and
-  extracts the coefficients of the PAR filter from it. This means that
-  the variables in the multivariate vector are given ``seasons'' in
+  By default, \code{VAR2pcfilter} constructs the U-form of the VAR model
+  and extracts the coefficients of the PAR filter from it. This means
+  that the variables in the multivariate vector are given ``seasons'' in
   reverse order (the first variable takes the last season, and so on).
-  For the reasons behind this default, see the reference.  Another
+  For the reasons behind this default, see
+  \insertCite{boshnakov2009gen;textual}{mcompanion}.  Another
   arrangement can be chosen with the help of argument
   \code{perm}. \code{perm} should be a permutation specifying the
-  desired allocation of varibles to seasons. The default corresponds to
+  desired allocation of variables to seasons. The default corresponds to
   \code{perm=d:1}, where \code{d} is the number of
   seasons. \code{perm=1:d} could be used to request the ``natural''
   order.
@@ -83,10 +96,11 @@ VAR2pcfilter(phi, \dots, Sigma, Phi0, Phi0inv, D, what = "coef", perm)
 
 }
 \value{
-  If \code{what="coef"},
-  a matrix of the periodic model coefficients.
 
-  If \code{what="coef.and.var"}, alist containing the coefficients and
+  If \code{what="coef"}, a matrix containing the periodic model
+  coefficients (one row for each season).
+
+  If \code{what="coef.and.var"}, a list containing the coefficients and
   the innovations' variances:
   \item{pcfilter}{PAR coefficients, a matrix}
   \item{var}{innovation variances, a vector}
@@ -118,10 +132,12 @@ VAR2pcfilter(phi, \dots, Sigma, Phi0, Phi0inv, D, what = "coef", perm)
       upper-triangular matrix U.
     }
   }
+  Could export these if they are deemed more widely useful.
 }
 
 \seealso{
-  \code{\link{mf_VSform}}
+  \code{\link{mf_VSform}},
+  \code{\link{sim_pcfilter}}
 }
 \examples{
 ## create a pc filter
@@ -131,9 +147,11 @@ rfi$pcfilter
 ## turn it into VAR form
 flt <- new("MultiFilter", coef = rfi$pcfilter)
 I1 <- mf_VSform(flt, form="I")
+I1
 
 ## from VAR to scalar form
 flt2 <- VAR2pcfilter(I1$Phi, Sigma = I1$Phi0inv \%*\% t(I1$Phi0inv))
+flt2
 
 ## confirm that we are back to the original
 ##   (VAR2pcfilter doesn't drop redundant zeroes, so we do it manually)

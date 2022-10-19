@@ -26,4 +26,4 @@ m <- matrix(1:12, nrow = 2)
 b <- matrix(c(0, 1, 1, 0), nrow = 2)
 rblockmult(m,b)
 }
-\keyword{ matrices }
+\keyword{matrices}

@@ -107,7 +107,7 @@ jd <- JordanDecomposition(values = c(0.9, 0.3), vectors = m)
 as(jd, "matrix")
 eigen(jd)
 ## the eigenvectors are scaled versions of m's columns:
-eigen(jd)$vectors %*% diag(c(5 / eigen(jd)$vectors[1,1], -5))
+eigen(jd)$vectors \%*\% diag(c(5 / eigen(jd)$vectors[1,1], -5))
 ## == m
 
 ## eigenvalues are not supplied, so set to  NA's here:
@@ -117,4 +117,4 @@ JordanDecomposition(vectors = m)
 JordanDecomposition(values = rep(0,2), height = c(1,1))
 }
 \keyword{methods}
-\keyword{matrices}
+\keyword{algebra}

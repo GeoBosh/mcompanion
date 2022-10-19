@@ -132,6 +132,5 @@ all( m \%*\% c(0,1,0,0) == c(0,1,0,0) + c(1,1,1,1) ) # TRUE
 cbind(c(1,1,1,1), c(0,1,0,0)) \%*\% cbind(c(1,0), c(1,1))
 m \%*\% cbind(c(1,1,1,1), c(0,1,0,0))
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ matrices }
+\keyword{matrices}
+\keyword{algebra}

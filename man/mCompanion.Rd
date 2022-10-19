@@ -3,7 +3,7 @@
 \alias{initialize,MultiCompanion-method}
 \title{ Create objects from class MultiCompanion }
 \description{
-  Create, generate, or simulate objects from class MultiCompanion by
+  Create, generate, or simulate objects from class \code{"MultiCompanion"} by
   specifying the matrix in several ways.
 }
 \usage{
@@ -14,13 +14,15 @@ mCompanion(x, detect = "nothing", misc = list(), \dots)
 }
 \arguments{
   \item{x}{
-    the matrix; for mCompanion only \code{x} may be the top of the
-    matrix or a character string, see Details.
+    the matrix or, for \code{mCompanion} only, the top of the
+    matrix or a character string, see section \sQuote{Details}.
   }
-  \item{misc}{information to be stored in the object's pad.}
+  \item{misc}{
+    information to be stored in the object's pad.
+  }
   \item{\dots}{
     other arguments to be passed down to generator functions, see
-    Details.
+    section \sQuote{Details}.
   }
   \item{xtop}{ the top of the matrix. }
   \item{mo}{ the multi-companion order of the matrix. }
@@ -40,13 +42,27 @@ mCompanion(x, detect = "nothing", misc = list(), \dots)
   \item{.Object}{this is set implicitly by package "methods". }
 }
 \details{
-  The argument \code{x} may be the string "sim" or "gen". In this case
-  \code{mCompanion} calls \code{\link{sim_mc}} or \code{\link{make_mcmatrix}},
-  respectively, with the arguments \code{...} and converts the result to
-  class MultiCompanion.  See the documentation of those functions for
-  further details and examples.  The conversion may be the main reason
-  to use \code{mCompanion} in this way rather than call \code{sim_mc}
-  and \code{make_mcmatrix} directly.
+
+  Objects from class \code{"MultiCompanion"} can be created by calling
+  \code{mCompanion()} or \code{new("MultiCompanion", ...)}. In the
+  latter case the \dQuote{\dots} arguments are as for the
+  \code{initialize} method, except \code{.Object}. Do not call
+  \code{initialize} directly.
+
+  \code{mCompanion} can generate multi-companion matrices from spectral
+  information, full or partial, using the methodology developed by
+  \insertCite{boshnakov2009gen;textual}{mcompanion}. If the
+  specification is not given in full, the missing information is filled
+  with suitably simulated values. For example, unspecifies eigenvalues
+  are generated inside the unit circle, \code{\link{sim_mc}}.
+
+  If argument \code{x} is the string "sim" or "gen", then
+  \code{mCompanion} calls \code{\link{sim_mc}} or
+  \code{\link{make_mcmatrix}}, respectively, with the arguments
+  \code{...} and converts the result to class MultiCompanion.  See the
+  documentation of those functions for further details and examples.
+  The conversion may be the main reason to use \code{mCompanion} in this
+  way rather than call \code{sim_mc} and \code{make_mcmatrix} directly.
 
   Otherwise, if \code{x} is numeric it is taken to specify the top of
   the matrix unless \code{detect="mo"} in which case it is the whole
@@ -64,7 +80,7 @@ mCompanion(x, detect = "nothing", misc = list(), \dots)
   of the matrix if \code{detect=="mo"}.
 }
 \value{
-  a multi-companion matrix, an object of class MultiCompanion
+  a multi-companion matrix, an object of class \code{"MultiCompanion"}
 }
 \references{%
   \insertRef{boshnakov2002mc}{mcompanion}
@@ -78,16 +94,17 @@ mCompanion(x, detect = "nothing", misc = list(), \dots)
 \seealso{
     \code{\link{sim_mc}},
     \code{\link{make_mcmatrix}},
-    \code{\linkS4class{MultiCompanion}},
-    \code{\link{initialize,MultiCompanion-method}}
+    \code{\linkS4class{MultiCompanion}}
 }
 \examples{
-# simulate a 6x6 mc matrix with 4 non-trivial rows
+# simulate a 6x6 mc matrix with 2 non-trivial rows
 mCompanion("sim", dim = 4, mo = 2)
+# simulate a 6x6 mc matrix with 4 non-trivial rows
 mCompanion("sim", dim = 6, mo = 4)
 # similar to above but top rows with 2 non-zero columns
 mCompanion("sim", dim = 6, mo = 4, mo.col = 2)
 
+## specify the non-trivial top rows (as a matrix):
 m1 <- matrix(1:24, nrow = 4)
 mCompanion(m1)            # mc matrix with m1 on top
 
@@ -120,7 +137,8 @@ x4a <- mCompanion(m4, mo = 2, mo.col = 2)
 x4a@mo.col    #  = 2,  has Jordan blocks of size > 1
 ## the eigenvectors do not span the space:
 eigen(x4a)
-## mc_eigen exploits the Jordan structure ((e.g.2x2 Jordan blocks):
+## mc_eigen exploits the Jordan structure, e.g.2x2 Jordan blocks,
+## and gives the generalised eigenvectors:
 (ev <- mc_eigen(x4a))
 
 x4a \%*\% ev$vectors

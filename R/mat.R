@@ -5,7 +5,27 @@ rblockmult <- function(x,b){  # 2014-05-24 generalise to non-square b
     r <- ncol(x)/m
 
     res <- matrix(0, nrow = nrow(x), ncol = r * ncol(b))
+
+    x <- as.matrix(x) # in case they are from class 'Matrix' or other class
+    b <- as.matrix(b) # note that 'x' and 'b' cannot be vector, see nrow() and ncol() above.
+
     for(i in 0:(r-1))
+        ## 2022-10-19 r.h.s was: x[ , i*m + 1:m] %*% b
+        ##       but in Matrix v1.5-2 there is a change. This is from email by
+        ##       Mikael Jagan:
+        ##
+        ##       "The reason is that the product of a pMatrix and a traditional matrix
+        ##       now a (row- or column-permuted) _M_atrix, rather than an equivalent
+        ##       _m_atrix, for consistency with other products involving _M_atrix."
+        ## 
+        ##       If 'b' is a permutation matrix (from package Matrix), then before the change
+        ##       the product on the r.h.s. below was an ordinary matrix (ok for the assignment)
+        ##       but after that it is a Matrix object and the assignment fails.
+        ##       
+        ##       This actually reveals a deficiency (or bug) in 'rblockmult' 
+        ##       since it is clearly supposed to work with any matrix objects.
+        ##
+        ##       was:    res[ , i*n + 1:n] <- x[ , i*m + 1:m] %*% b
         res[ , i*n + 1:n] <- x[ , i*m + 1:m] %*% b
     res
 }
@@ -76,7 +96,13 @@ permute_synch <- function(param, perm){
 
     U <- P %*% wrk$L %*% t(P)
     d <- wrk$d[perm]
-                      # todo: the above is very lazy, could be done by simply permuting rows
+    ## 2022-10-19 TODO: The note below now becomes urgent since a change in Matrix v1.5-2
+    ##     causes the result of matrix multiplication with permutation Matrix and 'matrix' be
+    ##     'Matrix', not 'matrix' as before. This makes U of class Matrix.
+    ##
+    ##     For now just converting U to matrix but redo this function as remarked below.
+    U <- as.matrix(U)
+                      # TODO: the above is very lazy, could be done by simply permuting rows
                       #       and columns. A simple check:
                       #    D <- P %*% diag(wrk$d) %*% t(P)
                       #    stopifnot(all(d == diag(D)))

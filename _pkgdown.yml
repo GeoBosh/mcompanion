@@ -14,16 +14,20 @@ reference:
     contents:
       - "mcompanion-package"
       
+  - title: "Main functions"
+    contents:
+      - mCompanion
+      - matches("sim_")
+      - VAR2pcfilter
+      - mf_VSform
+
   - title: "Classes and generators"
     contents:
       - "MultiCompanion-class"
       - "SmallMultiCompanion-class"
       - "MultiFilter-class"
-      - VAR2pcfilter
-      - mCompanion
       - "mcSpec-class"
       - mcSpec
-      - mf_VSform
   - title: "Utilities for multi-companion matrices"
     contents:
       - mc_eigen
@@ -34,9 +38,6 @@ reference:
       - mc_order
       - make_mcmatrix
       - make_mcev
-  - title: "Simulation"
-    contents:
-      - matches("sim_")
   - title: "Generic matrix utilities"
     contents:
       - matches("[Jj]ordan")

@@ -57,7 +57,9 @@ sim_pcfilter(period, n.root, order = n.root, mo.col, \dots)
 \seealso{ \code{\link{sim_mc}} }
 \examples{
 rfi <- sim_pcfilter(2,3)
+rfi
 mo <- cbind(c(1,1),rfi$pcfilter)
+mo
 }
 \keyword{ datagen }
 \keyword{ ts }

@@ -28,8 +28,20 @@ as.matrix.MultiCompanion <-
 setAs("matrix", "MultiCompanion",
       function(from) mCompanion(from, detect="mo") )
 
+
 setAs("MultiCompanion", "dgeMatrix",
-      function(from)  as(as(from, "matrix"), "dgeMatrix") )
+      function(from){
+          ## 2022-10-19 was: as(as(from, "matrix"), "dgeMatrix") )
+          ##     as(<matrix>, "dgeMatrix") is deprecated since Matrix 1.5-0; do
+          ##         as(as(as(., "dMatrix"), "generalMatrix"), "unpackedMatrix")
+          ##     instead.
+          ## Note that once this method is defined, it can be used in my functions when the 
+          ## argument is "MultiCompanion", since package Matrix doesn't forbid me that. 
+          ## TODO: but it will beprudent to make this method convert to something allowed 
+          ##       also by Matrix.  
+          m <- as(from, "matrix")
+          as(as(as(m, "dMatrix"), "generalMatrix"), "unpackedMatrix")
+      })
 
 setAs("dgeMatrix", "MultiCompanion",
       function(from)  as(as(from, "matrix"), "MultiCompanion") )
@@ -206,7 +218,7 @@ setMethod("[", signature(x = "MultiCompanion", i = "index", j = "missing",
             else if(nrow(r)==ncol(r))          # assumes nrow and ncol are defined for r
               mCompanion(r, detect="mo")
             else
-              as(r, "dgeMatrix")
+              as(as(as(r, "dMatrix"), "generalMatrix"), "unpackedMatrix")
           })
 
 setMethod("[", signature(x = "MultiCompanion",  i = "missing", j = "index",
@@ -218,7 +230,7 @@ setMethod("[", signature(x = "MultiCompanion",  i = "missing", j = "index",
             else if(nrow(r)==ncol(r))          # assumes nrow and ncol are defined for r
               mCompanion(r, detect="mo")
             else
-              as(r, "dgeMatrix")
+              as(as(as(r, "dMatrix"), "generalMatrix"), "unpackedMatrix")
           })
 
 setMethod("[", signature(x = "MultiCompanion",  i = "index", j = "index",
@@ -233,7 +245,7 @@ setMethod("[", signature(x = "MultiCompanion",  i = "index", j = "index",
             else if(nrow(r)==ncol(r))          # assumes nrow and ncol are defined for r
               mCompanion(r, detect="mo")
             else
-              as(r, "dgeMatrix")
+              as(as(as(r, "dMatrix"), "generalMatrix"), "unpackedMatrix")
           })
                                                                          #   end: subscripting
 
@@ -265,7 +277,7 @@ setMethod("%*%", signature(x = "MultiCompanion", y = "ANY"),
 ## needs specific implementation but is ok
 setMethod("%*%", signature( x = "ANY", y = "MultiCompanion"),
           function(x,y){
-              x %*% as(y,"dgeMatrix")
+              x %*% as(y, "dgeMatrix")
           }
           )
 
@@ -289,14 +301,14 @@ setMethod("%*%", signature( x = "ANY", y = "MultiCompanion"),
 
 setMethod("%*%", signature(x = "MultiCompanion", y = "matrix"),
           function(x,y){
-              as(x,"dgeMatrix") %*% y   # use something like callGeneric instead?
+              as(x, "dgeMatrix") %*% y   # use something like callGeneric instead?
           }
           )
 
 # needs specific implementation but is ok
 setMethod("%*%", signature( x = "matrix", y = "MultiCompanion"),
           function(x,y){
-              x %*% as(y,"dgeMatrix")
+              x %*% as(y, "dgeMatrix")
           }
           )
                                                                                   #   end: %*%
@@ -305,7 +317,7 @@ setMethod("%*%", signature( x = "matrix", y = "MultiCompanion"),
 # change when other types of MultiCompanion are implemented.                       # transpose
 setMethod("t", signature(x = "MultiCompanion"),
           function(x){
-              t(as(x,"dgeMatrix") )
+              t(as(x, "dgeMatrix"))
           }
           )
 

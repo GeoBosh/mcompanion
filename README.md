@@ -1,6 +1,6 @@
 [![CRANStatusBadge](http://www.r-pkg.org/badges/version/mcompanion)](https://cran.r-project.org/package=mcompanion)
 [![R-CMD-check](https://github.com/GeoBosh/mcompanion/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/GeoBosh/mcompanion/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/GeoBosh/mcompanion/branch/master/graph/badge.svg?token=8DPALQF8DY)](https://codecov.io/gh/GeoBosh/mcompanion)
+[![codecov](https://codecov.io/gh/GeoBosh/mcompanion/branch/master/graph/badge.svg?token=8DPALQF8DY)](https://app.codecov.io/gh/GeoBosh/mcompanion)
 
 # Installing mcompanion
 

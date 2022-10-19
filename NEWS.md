@@ -1,4 +1,9 @@
-# Version 0.5-4
+- require Matrix (>= 1.5-0) to avoid problems for users who have an earlier
+  version of Matrix on their device (thanks to Mikael Jagan for checking for not
+  strict enough dependency on Matrix and alerting us).
+
+
+# Version 0.5-4 (CRAN)
 
 - added further tests.
 
