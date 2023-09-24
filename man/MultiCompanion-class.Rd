@@ -3,6 +3,8 @@
 \alias{MultiCompanion-class}
 \alias{\%*\%,MultiCompanion,ANY-method}
 \alias{\%*\%,ANY,MultiCompanion-method}
+\alias{\%*\%,MultiCompanion,vector-method}
+\alias{\%*\%,vector,MultiCompanion-method}
 \alias{\%*\%,MultiCompanion,MultiCompanion-method}
 \alias{\%*\%,MultiCompanion,matrix-method}
 \alias{\%*\%,matrix,MultiCompanion-method}
@@ -15,6 +17,10 @@
 \alias{coerce,MultiCompanion,dgeMatrix-method}
 \alias{mcStable,MultiCompanion-method}
 \alias{t,MultiCompanion-method}
+
+\alias{[,MultiCompanion,index,index,missing-method}
+\alias{[,MultiCompanion,index,missing,missing-method}
+\alias{[,MultiCompanion,missing,index,missing-method}
 
 \title{Class "MultiCompanion"}
 \description{Objects and methods for multi-companion matrices}
@@ -126,7 +132,12 @@ Class \code{"Matrix"}, by class \code{"generalMatrix"}.
 
 
     \item{\%*\%}{\code{signature(x = "matrix", y = "MultiCompanion")}: ... }
-    \item{\%*\%}{\code{signature(x = "MultiCompanion", y = "matrix")}: ... }}
+    \item{\%*\%}{\code{signature(x = "MultiCompanion", y = "matrix")}: ... }
+    \item{[}{\code{signature(x = "MultiCompanion", i = "index", j = "index", drop = "missing")}: ... }
+    \item{[}{\code{signature(x = "MultiCompanion", i = "index", j = "missing", drop = "missing")}: ... }
+    \item{[}{\code{signature(x = "MultiCompanion", i = "missing", j = "index", drop = "missing")}: ... }
+    \item{\%*\%}{\code{signature(x = "MultiCompanion", y = "vector")}: ... }
+    \item{\%*\%}{\code{signature(x = "vector", y = "MultiCompanion")}: ... }}
 }
 \references{%
   \insertRef{boshnakov2002mc}{mcompanion}

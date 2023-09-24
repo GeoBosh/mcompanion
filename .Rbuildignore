@@ -13,3 +13,4 @@ _pkgdown.yml
 ^TechnicalDoc
 ^sav[0-9]*[.]Rhistory
 ^\.github$
+revdep/

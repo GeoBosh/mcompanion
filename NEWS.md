@@ -1,9 +1,27 @@
+# Version 0.5.8 (CRAN)
+
+- added a couple of methods for`%*% to avoid some methods for "MultiCompanion" 
+  being masked in the forthcoming v1.6-2 of Matrix.
+
+
+# Version 0.5.7 (CRAN)
+
+- fixed a CRAN error in a test that was checking unwisely the exact text of a
+  warning from `chol` about rank defficiency. That text changed recently,
+  causing test error from the package on CRAN.
+
+
+# Version 0.5.6 (CRAN)
+
+- added `[` methods for class "MultiCompanion" with `drop = missing` for v1.5.5
+  of Matrix.
+
+
+# Version 0.5.5 (CRAN)
+
 - require Matrix (>= 1.5-0) to avoid problems for users who have an earlier
-  version of Matrix on their device (thanks to Mikael Jagan for checking for not
-  strict enough dependency on Matrix and alerting us).
-
-
-# Version 0.5-4 (CRAN)
+  version of Matrix on their device. This may not be really needed for
+  `mcompanion` but packages that require it do.
 
 - added further tests.
 

@@ -1,7 +1,7 @@
 Package: mcompanion
 Type: Package
 Title: Objects and Methods for Multi-Companion Matrices
-Version: 0.5-5
+Version: 0.5.8
 Authors@R: person(given = c("Georgi", "N."), family = "Boshnakov", 
                   role = c("aut", "cre"), 
                   email = "georgi.boshnakov@manchester.ac.uk") 
@@ -13,7 +13,7 @@ Description:
     multivariate time series models. See Boshnakov (2002)
     <doi:10.1016/S0024-3795(01)00475-X> and Boshnakov & Iqelan (2009)
     <doi:10.1111/j.1467-9892.2009.00617.x>.
-URL: https://github.com/GeoBosh/mcompanion (devel), https://geobosh.github.io/mcompanion/ (doc)
+URL:  https://geobosh.github.io/mcompanion/ (doc), https://github.com/GeoBosh/mcompanion (devel)
 BugReports: https://github.com/GeoBosh/mcompanion/issues
 Imports: methods, Matrix (>= 1.5-0), gbutils, MASS, Rdpack
 Suggests: testthat, lagged

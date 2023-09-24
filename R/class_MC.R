@@ -247,6 +247,39 @@ setMethod("[", signature(x = "MultiCompanion",  i = "index", j = "index",
             else
               as(as(as(r, "dMatrix"), "generalMatrix"), "unpackedMatrix")
           })
+
+## 2023-04-22: add methods for drop = missing, see Michael Jager's email from 19 April 2023,
+##          whose suggested code is below.
+setMethod("[",
+           c(x = "MultiCompanion", i = "index", j = "missing", drop = "missing"),
+           function(x, i, j, ..., drop = TRUE) {
+               na <- nargs()
+               if (na == 2L)
+                   x[i, drop = TRUE]
+               else if (na == 3L)
+                   x[i, , drop = TRUE]
+               else stop("incorrect number of dimensions")
+           })
+
+setMethod("[",
+           c(x = "MultiCompanion", i = "missing", j = "index", drop = "missing"),
+           function(x, i, j, ..., drop = TRUE) {
+               na <- nargs()
+               if (na == 2L)
+                   x[j, drop = TRUE]
+               else if (na == 3L)
+                   x[, j, drop = TRUE]
+               else stop("incorrect number of dimensions")
+           })
+
+setMethod("[",
+           c(x = "MultiCompanion", i = "index", j = "index", drop = "missing"),
+           function(x, i, j, ..., drop = TRUE) {
+               na <- nargs()
+               if (na == 3L)
+                   x[i, j, drop = TRUE]
+               else stop("incorrect number of dimensions")
+           })
                                                                          #   end: subscripting
 
                                                                                   # begin: %*%
@@ -267,7 +300,7 @@ setMethod("%*%", signature(x = "MultiCompanion", y = "MultiCompanion"),
 
 # special method for diagonal matrix? keep MultiCompanion type if mult by identity?
 
-# needs specific implementation but is ok
+## needs specific implementation but is ok
 setMethod("%*%", signature(x = "MultiCompanion", y = "ANY"),
           function(x,y){
               as(x, "dgeMatrix") %*% y   # use something like callGeneric instead?
@@ -280,6 +313,25 @@ setMethod("%*%", signature( x = "ANY", y = "MultiCompanion"),
               x %*% as(y, "dgeMatrix")
           }
           )
+
+## 2023-09-22: duplicate the above two  methods with "ANY" changed to "vector"
+##    to accommodate for a forthcoming change in Matrix v1.6-2, see email from 
+##     Mikael Jagan from 2023-09-16
+##
+## needs specific implementation but is ok
+setMethod("%*%", signature(x = "MultiCompanion", y = "vector"),
+          function(x,y){
+              as(x, "dgeMatrix") %*% y   # use something like callGeneric instead?
+          }
+          )
+
+## needs specific implementation but is ok
+setMethod("%*%", signature( x = "vector", y = "MultiCompanion"),
+          function(x,y){
+              x %*% as(y, "dgeMatrix")
+          }
+          )
+
 
 ## 2015-07-24 adding methods with signature "matrix" to resolve the following error and
 ##            warning from the last example in mCompanion:

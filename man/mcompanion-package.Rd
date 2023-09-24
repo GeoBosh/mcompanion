@@ -33,15 +33,16 @@
   \Sexpr[stage=build]{pd$Description}
 }
 \details{
-   \tabular{ll}{
-   Package:  \tab \Sexpr[stage=build]{pd$Package}\cr
-   Type:     \tab \Sexpr[stage=build]{pd$Type}\cr
-   Version:  \tab \Sexpr[stage=build]{pd$Version} \cr
-   Date:     \tab \Sexpr[stage=build]{pd$Date}\cr
-   License:  \tab \Sexpr[stage=build]{pd$License}\cr
-   LazyLoad: \tab \Sexpr[stage=build]{pd$LazyLoad}\cr
-   Built:    \tab \Sexpr[stage=build]{pd$Built}\cr
-   }
+   % 2023-06-09 was:
+   % \tabular{ll}{
+   % Package:  \tab \Sexpr[stage=build]{pd$Package}\cr
+   % Type:     \tab \Sexpr[stage=build]{pd$Type}\cr
+   % Version:  \tab \Sexpr[stage=build]{pd$Version} \cr
+   % Date:     \tab \Sexpr[stage=build]{pd$Date}\cr
+   % License:  \tab \Sexpr[stage=build]{pd$License}\cr
+   % LazyLoad: \tab \Sexpr[stage=build]{pd$LazyLoad}\cr
+   % Built:    \tab \Sexpr[stage=build]{pd$Built}\cr
+   % }
 
    % 2014-10-30 slagam tematichen index.
   \strong{Index of the main exported objects, classes and methods:}

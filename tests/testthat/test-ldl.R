@@ -63,6 +63,8 @@ test_that(".ldl() and .udu() work.", { ## can beused also as examples
     ## expect_lt(max(abs(mu - m)), 1e-11)
 
     msg_rank <- "the matrix is either rank-deficient or indefinite"
+    msg_rank <- NULL # for v0.5.7; we expect above message but not wise to check the text,
+                     # it changed to 'the matrix ... or not positive definite' recently)
     expect_warning(mcho <- chol(m, pivot = TRUE), msg_rank)
     expect_equal(attr(mcho, "pivot"), c(3L,1L,2L))
     expect_equal(attr(mcho, "rank"),2)

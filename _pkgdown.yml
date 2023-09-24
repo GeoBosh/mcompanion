@@ -9,8 +9,6 @@ search:
 
 reference:
   - title: "mcompanion overview"
-    desc: >
-      mcompanion overview
     contents:
       - "mcompanion-package"
       
@@ -21,13 +19,6 @@ reference:
       - VAR2pcfilter
       - mf_VSform
 
-  - title: "Classes and generators"
-    contents:
-      - "MultiCompanion-class"
-      - "SmallMultiCompanion-class"
-      - "MultiFilter-class"
-      - "mcSpec-class"
-      - mcSpec
   - title: "Utilities for multi-companion matrices"
     contents:
       - mc_eigen
@@ -48,6 +39,13 @@ reference:
     contents:
       - matches("^spec_.+")
       - spec_seeds1
+  - title: "Classes and generators"
+    contents:
+      - "MultiCompanion-class"
+      - "SmallMultiCompanion-class"
+      - "MultiFilter-class"
+      - "mcSpec-class"
+      - mcSpec
   - title: "Low-level functions"
     contents:
       - mc_chain_extend

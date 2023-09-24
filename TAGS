@@ -1,100 +1,0 @@
-
-./R/chol.R,26
-..ldl2,19
-..udu23,777
-
-./R/matpermute.R,57
-ppermute_var2,19
-..rnrow7,158
-ppermute_synch14,251
-
-./R/mc.R,207
-mmc_matrix1,0
-mmc_full10,289
-iis_mc_bottom22,646
-mmc_order26,807
-mmc_leftc40,1423
-mmc_factorize83,2696
-mmc_from_factors94,3097
-mmc_from_filter113,3810
-mmcStable126,4318
-smcStable132,4496
-
-./R/mc00.R,82
-rrblockmult1,0
-JJordan_matrix13,295
-ffrom_Jordan35,1055
-cchain_ind50,1802
-
-./R/mc01zero.R,188
-mmc.0chain.transf2,62
-mmc.0chain.dx46,2370
-mmc.0chain.complete73,3205
-mmc.0chain.triang135,5948
-mmc.0chain.struct162,7240
-mmc_0chains245,10949
-mmc.0chain.structfill297,13606
-
-./R/mc02gen.R,252
-mmake_mcgev1,0
-mmake_mcev25,677
-mmake_mcchains50,1422
-mmc_chain_scale146,5423
-mmake_mcmatrix170,6271
-mmC.non0chain.extend187,6798
-mmc_chain_subset246,8869
-mmc_chain_extend273,9651
-mmc_chain_to_list288,10198
-mmc_chain_merge304,10506
-
-./R/mc05sim.R,61
-ssim_pcfilter11,564
-ssim_mcseeds44,1732
-ssim_mc73,2750
-
-./R/mc07class.R,593
-sMultiCompanion17,927
-aas.matrix.MultiCompanion41,2187
-sinitialize,MultiCompanion63,2811
-mmCompanion184,7545
-s[,MultiCompanion,index,missing,logical219,9139
-s[,MultiCompanion,missing,index,logical232,9563
-s[,MultiCompanion,index,index,logical244,9987
-s%*%,MultiCompanion,MultiCompanion262,10814
-s%*%,MultiCompanion,ANY280,11377
-s%*%,ANY,MultiCompanion287,11611
-s%*%,MultiCompanion,matrix308,12428
-s%*%,matrix,MultiCompanion315,12665
-st,MultiCompanion324,13008
-smcStable,MultiCompanion330,13139
-mmc_factors339,13503
-mmc_eigenvalues376,14500
-mmc_eigen385,14656
-
-./R/mc08filter.R,238
-sMultiFilter2,95
-sinitialize,MultiFilter14,703
-s[,MultiFilter57,2469
-mmf_period140,5687
-..mF.invperm144,5734
-mmf_order150,5811
-mmf_poles198,7872
-mmf_VSform206,8036
-smcStable,MultiFilter277,10783
-VVAR2pcfilter286,11075
-
-./R/mc09templ.R,209
-soptionalMatrix1,0
-mmcSpec4,126
-..Hz_real29,1345
-sspec_root133,1449
-sspec_seeds169,2504
-sspec_root074,2662
-..adjust_mo_col108,3883
-..bind123,4306
-..cbind131,4506
-sinitialize,mcSpec150,5254
-
-./R/spaces.R,43
-nnull_complement3,24
-sspec_core46,2117

@@ -12,8 +12,7 @@ CRAN.
 You can install the [development version](https://github.com/GeoBosh/mcompanion) of
 `mcompanion` from Github:
 
-    library(devtools)
-    install_github("GeoBosh/mcompanion")
+    remotes::install_github("GeoBosh/mcompanion")
 
 
 # Overview
