@@ -1,7 +1,7 @@
 Package: mcompanion
 Type: Package
 Title: Objects and Methods for Multi-Companion Matrices
-Version: 0.5.8
+Version: 0.5.8.9000
 Authors@R: person(given = c("Georgi", "N."), family = "Boshnakov", 
                   role = c("aut", "cre"), 
                   email = "georgi.boshnakov@manchester.ac.uk") 
@@ -15,7 +15,8 @@ Description:
     <doi:10.1111/j.1467-9892.2009.00617.x>.
 URL:  https://geobosh.github.io/mcompanion/ (doc), https://github.com/GeoBosh/mcompanion (devel)
 BugReports: https://github.com/GeoBosh/mcompanion/issues
-Imports: methods, Matrix (>= 1.5-0), gbutils, MASS, Rdpack
+Depends: methods
+Imports: Matrix (>= 1.5-0), gbutils, MASS, Rdpack
 Suggests: testthat, lagged
 RdMacros: Rdpack
 License: GPL (>= 2)

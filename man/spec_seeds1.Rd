@@ -33,7 +33,7 @@ spec_seeds1(len.block, mo)
   forgotten the details but think that this is the reason that it is not
   necessary to have an argument for the dimension of the matrix).
 
-  code{spec_seeds1} can be used by model fitting functions to prepare
+  \code{spec_seeds1} can be used by model fitting functions to prepare
   parameters for estimation but see \code{\link{spec_root1}} and
   \code{\link{mcSpec}} for a more comprehensive treatment.
 

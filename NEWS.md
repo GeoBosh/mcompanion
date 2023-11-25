@@ -1,7 +1,15 @@
+# Version 0.5.8.9000
+
+- add a missing backslash in an Rd file causing the NOTE 'Lost braces' from R
+  checks.
+
+
 # Version 0.5.8 (CRAN)
 
-- added a couple of methods for`%*% to avoid some methods for "MultiCompanion" 
-  being masked in the forthcoming v1.6-2 of Matrix.
+- added a couple of methods for`%*% to avoid some methods for "MultiCompanion"
+  being masked in the forthcoming v1.6-2 of Matrix. We recommend developers of
+  packages that import mcompanion to use 'mcompanion (>= 0.5.8)' in their.
+  DESCRIPTION file.
 
 
 # Version 0.5.7 (CRAN)
