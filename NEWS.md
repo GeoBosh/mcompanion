@@ -1,10 +1,21 @@
-# Version 0.5.8.9000
+# Version 0.6.9000
 
-- add a missing backslash in an Rd file causing the NOTE 'Lost braces' from R
+- removed the blank first row from the table in `mc_chain_subset.Rd`.
+
+
+# Version 0.6
+
+- implemented "MultiCompanion" methods for group generic functions like 'Ops'
+  for class 'MultiCompanion'.  Previously these were inherited from 'Matrix' but
+  recent changes in package 'Matrix' made this reliance unstable.
+
+- implemented "MultiCompanion" methods for `diag` and its replacement version.
+
+- added a missing backslash in an Rd file causing the NOTE 'Lost braces' from R
   checks.
 
 
-# Version 0.5.8 (CRAN)
+# Version 0.5.8
 
 - added a couple of methods for`%*% to avoid some methods for "MultiCompanion"
   being masked in the forthcoming v1.6-2 of Matrix. We recommend developers of
@@ -12,20 +23,20 @@
   DESCRIPTION file.
 
 
-# Version 0.5.7 (CRAN)
+# Version 0.5.7
 
 - fixed a CRAN error in a test that was checking unwisely the exact text of a
   warning from `chol` about rank defficiency. That text changed recently,
   causing test error from the package on CRAN.
 
 
-# Version 0.5.6 (CRAN)
+# Version 0.5.6
 
 - added `[` methods for class "MultiCompanion" with `drop = missing` for v1.5.5
   of Matrix.
 
 
-# Version 0.5.5 (CRAN)
+# Version 0.5.5
 
 - require Matrix (>= 1.5-0) to avoid problems for users who have an earlier
   version of Matrix on their device. This may not be really needed for
@@ -43,24 +54,24 @@
 - use Github actions, drop travisCI.
 
 
-# Version 0.5-3 (CRAN)
+# Version 0.5-3
 
 - building the pdf manual was failing on R old release (3.5.2 and 3.5.3).
   Fixed by building the package under R-3.5.2.
 
 
-# Version 0.5-2 (CRAN)
+# Version 0.5-2
 
 - remove description of unused argument "..." in "./man/mf_VSform.Rd".
 
 
-# Version 0.5-1 (CRAN)
+# Version 0.5-1
 
 - Built it under R-3.5.2 to avoid installation error on R old release (3.5.2 and
   3.5.3).
 
 
-# Version 0.5-0 (CRAN)
+# Version 0.5-0
 
 - `null_complement` now treats a numeric `m` as a matrix with one column in all
   cases.
@@ -75,14 +86,14 @@
 - numerous small code fixes and documentation edits.
 
 
-# Version 0.4-5 (CRAN)
+# Version 0.4-5
 
 - another tunning of DESCRIPTION.
 
 - first CRAN version
 
 
-# Version 0.4-4
+# Version 0.4-4 (not on CRAN)
 
 - added examples to user facing functions/classes which didn't have them.
 
@@ -91,7 +102,7 @@
 - some documentation clean-up.
 
 
-# Version 0.4-1
+# Version 0.4-1 (not on CRAN)
 
 - moved 'methods' and 'Matrix' from Depends: to Imports:.
 
@@ -100,7 +111,7 @@
   the rest.
 
 
-# Version 0.3-3
+# Version 0.3-3 (not on CRAN)
 
 - renamed `mc.0chain.transf()` to `reduce_chains_simple()` - the name was
   misleading since the algorithm is valid for any eigenvalues and is not
@@ -112,7 +123,7 @@
 - other renaming.
 
 
-# Version 0.3-2
+# Version 0.3-2 (not on CRAN)
 
 - completed (almost?) the handling of 0chains.
 
@@ -130,7 +141,7 @@
   chains). The work on this is not finished yet.
 
 
-# Version 0.3-1
+# Version 0.3-1 (not on CRAN)
 
 - now generation of mc-matrices covers all cases involving zero eigenvalues.
 
@@ -140,28 +151,28 @@
 - additional clean-up.
 
 
-# Version 0.3-0
+# Version 0.3-0 (not on CRAN)
 
 - wholesale renaming and clean-up.
 
 
-# Version 0.2-11
+# Version 0.2-11 (not on CRAN)
 
 - Further consolidated function names, moved a view of the old functions to
   package obsmcompanion in case someone needs to run old code.
 
 
-# Version 0.2-10
+# Version 0.2-10 (not on CRAN)
 
 - defined S3 method for `as.matrix`, `as.matrix.MultiCompanion`, for contexts
   where `as()` doesn't see the S4 method.
 
 - defined explicit methods for matrix multiplication of "MultiCompanion" and
-  "matrix". For some reason an error started to popup (change in package methods
-  or Matrix?).
+  "matrix". For some reason an error started to pop up (change in package
+  methods or Matrix?).
 
 
-# Version 0.2-9
+# Version 0.2-9 (not on CRAN)
 
 - `var2mf` was still buggy. Changed the return value to be more consistent.
 
@@ -170,7 +181,7 @@
 
 
 
-# Version 0.2-8
+# Version 0.2-8 (not on CRAN)
 
 - corrected a bug in `mcSpec`.
 
@@ -180,26 +191,26 @@
 - bugfix: `mfVSform` gave wrong value for `Phi0inv` when `form = "I"`.
 
 
-# Version 0.2-7
+# Version 0.2-7 (not on CRAN)
 
 - improved `mc_ev` and the subspace parameters; now all tests from version 0.2-5
   are passed.
 
 
-# Version 0.2-6
+# Version 0.2-6 (not on CRAN)
 
 - `mc_ev` now works and is called by `mC.ss` from package pcts.
   Partial implementation of subspace parameters.
 
 
-# Version 0.2-5
+# Version 0.2-5 (not on CRAN)
 
 - added a keyword "internal" to a number of functions which are rarely used or
   essentially internal, so that their documentation does not appear in the pdf
   manual. The documentation is still there and can be viewed with the help
   command.
 
-- continuing consolidaation from 0.2-4, renamed more functions the old names
+- continued consolidation from 0.2-4, renamed more functions, the old names
   will be valid for some time.
 
 - The index in mcompanion-package.Rd now lists only selected functions and does
@@ -211,7 +222,7 @@
   not used elsewhere yet.
 
 
-# Version 0.2-4
+# Version 0.2-4 (not on CRAN)
 
 - moved `sim_real` and similar to gbutils.
 
@@ -219,7 +230,7 @@
   old names will be valid for some time.
 
 
-# Version 0.2-2
+# Version 0.2-2 (not on CRAN)
 
 - `mC.gen.evecs` gets new argument `mo.col`, the code adapted to handle it
   properly.
@@ -227,7 +238,7 @@
 - renamed and rewrote `mc.chain.transf` to `mc.chain.scale`.
 
 
-# Version 0.2-1
+# Version 0.2-1 (not on CRAN)
 
 - `mC.gen.evec` and `mC.gen.gevec` now give error when `what.co = "top"` for a
   zero eigenvalue
@@ -238,7 +249,7 @@
 - new slots for `mcSpec` - `mc.col` and `F0bot`.
 
 
-# Version 0.2-0
+# Version 0.2-0 (not on CRAN)
 
 - updated `rblockmult()` to work with non-square second argument.
 
@@ -253,7 +264,7 @@
 - other changes.
 
 
-# Version 0.1-31
+# Version 0.1-31 (not on CRAN)
 
 - Import "gbutils" instead of "pad" (the latter is now part of gbutils).
 

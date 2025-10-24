@@ -15,7 +15,11 @@ setClass("MultiCompanion",
                                                                           # begin: As methods
 setAs("MultiCompanion", "matrix",
       function(from){
-        rbind(from@xtop, diag(1, nrow=from@ido, ncol=ncol(from)) )
+          ## 2023-12-03 was:
+          ##     rbind(from@xtop, diag(1, nrow = from@ido, ncol = ncol(from)) )
+          ## but ncol(from) causes infinite recursion: it calls dim(), which calls
+          ## as(from , "Matrix"), which in turn calls as(from , "matrix") (i.e. this method!)
+          rbind(from@xtop, diag(1, nrow = from@ido, ncol = from@Dim[2L]))
       }
       )
                 # need to define the S3 method since as.matrix doesn't see S4 methods for as()
@@ -29,6 +33,17 @@ setAs("matrix", "MultiCompanion",
       function(from) mCompanion(from, detect="mo") )
 
 
+## 2023-12-02 new, see the remark  for the "dgeMatrix" method below.
+##    TODO: think of a better or more efficient method?
+setAs("MultiCompanion", "Matrix",
+      function(from){
+          Matrix(as(from, "matrix"))
+      })
+
+mc2Matrix <- function(from) {
+    Matrix(as(from, "matrix"))
+}
+
 setAs("MultiCompanion", "dgeMatrix",
       function(from){
           ## 2022-10-19 was: as(as(from, "matrix"), "dgeMatrix") )
@@ -37,7 +52,7 @@ setAs("MultiCompanion", "dgeMatrix",
           ##     instead.
           ## Note that once this method is defined, it can be used in my functions when the 
           ## argument is "MultiCompanion", since package Matrix doesn't forbid me that. 
-          ## TODO: but it will beprudent to make this method convert to something allowed 
+          ## TODO: but it will be prudent to make this method convert to something allowed 
           ##       also by Matrix.  
           m <- as(from, "matrix")
           as(as(as(m, "dMatrix"), "generalMatrix"), "unpackedMatrix")
@@ -194,8 +209,9 @@ mCompanion <- function(x, detect = "nothing", misc = list(), ...){   # sig chang
         new("MultiCompanion", xtop = xtop, detect = "nothing", mo.col = mo.col, misc = xmisc)
     }else if(detect == "mo"){
         new("MultiCompanion", x = x, detect = detect, misc = misc, ...)
-    }else
+    }else {
         new("MultiCompanion", xtop = x, detect = detect, misc = misc, ...)
+    }
 }
                                                         #   end: create MultiCompanion objects
 
@@ -282,7 +298,137 @@ setMethod("[",
            })
                                                                          #   end: subscripting
 
+                                                                             # begin: Ops etc.
+setMethod("Ops", signature(e1 ="MultiCompanion", e2 ="MultiCompanion"),
+          function(e1, e2){
+              callGeneric(mc2Matrix(e1), mc2Matrix(e2))
+          }
+          )
+
+# special method for diagonal matrix? keep MultiCompanion type if mult by identity?
+
+## needs specific implementation but is ok
+setMethod("Ops", signature(e1 ="MultiCompanion", e2 ="ANY"),
+          function(e1, e2){
+              callGeneric(mc2Matrix(e1), e2)
+          }
+          )
+
+## needs specific implementation but is ok
+setMethod("Ops", signature( e1 ="ANY", e2 ="MultiCompanion"),
+          function(e1, e2){
+              callGeneric(e1, mc2Matrix(e2))
+          }
+          )
+
+## 2023-09-22: duplicate the above two  methods with "ANY" changed to "vector"
+##    to accommodate for a forthcoming change in Matrix v1.6-2, see email from 
+##     Mikael Jagan from 2023-09-16
+##
+## needs specific implementation but is ok
+setMethod("Ops", signature(e1 = "MultiCompanion", e2 = "vector"),
+          function(e1, e2){
+              callGeneric(mc2Matrix(e1), e2)
+          }
+          )
+
+setMethod("Ops", signature( e1 ="vector", e2 ="MultiCompanion"),
+          function(e1, e2){
+              callGeneric(e1, mc2Matrix(e2))
+          }
+          )
+
+## need these as the 'vector' ones above are not good enough to take precedence over some
+## 'Matrix' methods.
+setMethod("Ops", signature(e1 = "MultiCompanion", e2 = "numeric"),
+          function(e1, e2){
+              callGeneric(mc2Matrix(e1), e2)
+          }
+          )
+
+setMethod("Ops", signature( e1 ="numeric", e2 ="MultiCompanion"),
+          function(e1, e2){
+              callGeneric(e1, mc2Matrix(e2))
+          }
+          )
+
+setMethod("Ops", signature(e1 = "MultiCompanion", e2 = "logical"),
+          function(e1, e2){
+              callGeneric(mc2Matrix(e1), e2)
+          }
+          )
+
+setMethod("Ops", signature( e1 ="logical", e2 ="MultiCompanion"),
+          function(e1, e2){
+              callGeneric(e1, mc2Matrix(e2))
+          }
+          )
+
+## 'Matrix' doesn't have complex matrices yet, so convert mc to 'matrix'
+##   But these methods apply when the complex object is not'matrix'
+setMethod("Ops", signature(e1 = "MultiCompanion", e2 = "complex"),
+          function(e1, e2){
+              callGeneric(as(e1, "matrix"), e2)
+          }
+          )
+
+setMethod("Ops", signature( e1 ="complex", e2 ="MultiCompanion"),
+          function(e1, e2){
+              callGeneric(e1, as(e2, "matrix"))
+          }
+          )
+
+## in contrast to 'numeric' and 'logical', for "complex" the 'vector' methods work.
+
+
+## are the methods with "Matrix" necessary?
+setMethod("Ops", signature(e1 = "MultiCompanion", e2 = "Matrix"),
+          function(e1, e2){
+              callGeneric(mc2Matrix(e1), e2)
+          }
+          )
+
+setMethod("Ops", signature(e1 = "Matrix", e2 = "MultiCompanion"),
+          function(e1, e2){
+              callGeneric(e1, mc2Matrix(e2))
+          }
+          )
+
+setMethod("Ops", signature(e1 ="MultiCompanion", e2 ="matrix"),
+          function(e1, e2){
+              callGeneric(mc2Matrix(e1), e2)
+          }
+          )
+
+setMethod("Ops", signature( e1 ="matrix", e2 ="MultiCompanion"),
+          function(e1, e2){
+              callGeneric(e1, mc2Matrix(e2))
+          }
+          )
+                                                                                 # end Ops etc
+
+setMethod("Math", signature(x = "MultiCompanion"),
+          function(x){
+              callGeneric(as(x, "Matrix"))
+          }
+          )
+
+setMethod("Math2", signature(x = "MultiCompanion", digits = "ANY"),
+          function(x, digits){
+              x <- as(x, "Matrix")
+              callGeneric()
+          }
+          )
+
+setMethod("Summary", signature(x = "MultiCompanion"),
+          function (x, ..., na.rm = FALSE) {
+              x <- as(x, "Matrix")
+              callGeneric()
+          }
+          )
+
                                                                                   # begin: %*%
+## MultiCompanion times MultiCompanion is MultiCompanion
 setMethod("%*%", signature(x = "MultiCompanion", y = "MultiCompanion"),
           function(x,y){
               wrk <- x@xtop %*% as(y,"matrix")
@@ -299,6 +445,9 @@ setMethod("%*%", signature(x = "MultiCompanion", y = "MultiCompanion"),
           )
 
 # special method for diagonal matrix? keep MultiCompanion type if mult by identity?
+
+## 2023-12-02 TODO: change the result of %*% to ordinary matrix
+##                  (when it is not MultiCompanion")?
 
 ## needs specific implementation but is ok
 setMethod("%*%", signature(x = "MultiCompanion", y = "ANY"),
@@ -366,12 +515,39 @@ setMethod("%*%", signature( x = "matrix", y = "MultiCompanion"),
                                                                                   #   end: %*%
 
 
-# change when other types of MultiCompanion are implemented.                       # transpose
+## 2023-12-02 TODO: change the result of t() to ordinary matrix                    # transpose
+##                  (when it is not MultiCompanion")?
+
+# TODO: change when other types of MultiCompanion are implemented.
 setMethod("t", signature(x = "MultiCompanion"),
           function(x){
               t(as(x, "dgeMatrix"))
           }
           )
+
+setMethod("diag", signature(x = "MultiCompanion"),
+          function(x){
+              c(diag(x@xtop), rep(0, x@ido))
+          }
+          )
+
+setMethod("diag<-", signature(x = "MultiCompanion"),
+          function(x, value){
+              if(length(value) != 1  &&  length(value) != x@Dim[2])
+                  stop("length of replacement value must be equal to 1 or\n",
+                       "  the length of the diagonal\n")
+              
+              if(any(value[-(1:x@mo)] != 0)) {
+                  ## ok but the result is not multi-companion
+                  x <- as(x, "Matrix")
+                  diag(x) <- value
+              } else {
+                  diag(x@xtop) <- value[1:x@mo] # assumes x@mo > 0
+              }
+              x
+          }
+          )
+
 
 setMethod("mcStable", signature( x = "MultiCompanion" ),
           function(x){

@@ -28,8 +28,11 @@ mc_chain_merge(ev1, ev2)
   \code{ev2})  have the following structure:
 
   \tabular{ll}{
-    \cr % patch: otherwise 'mo' turns up one character to the left of
-        % the other entries in the first column. (BUG?)
+    % 2025-10-24: now CRAN complains that the first row doesn't have two
+    %    columns. It turns out that pkgdown even messes up the table!
+    %    so, commenting out the next 2 lines.
+    % \cr % patch: otherwise 'mo' turns up one character to the left of
+    %     % the other entries in the first column. (BUG?)
     \code{mo} \tab  the multi-companion order,\cr
     \code{mo.col} \tab  the mc column order,\cr
     \code{eigval} \tab  a vector of eigenvalues containing one
@@ -66,4 +69,3 @@ mc_chain_merge(ev1, ev2)
 \author{Georgi N. Boshnakov}
 \keyword{ mcchain }
 \keyword{internal}
-

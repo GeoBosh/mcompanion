@@ -14,6 +14,7 @@
 \alias{coerce,dgeMatrix,MultiCompanion-method}
 \alias{coerce,matrix,MultiCompanion-method}
 \alias{coerce,MultiCompanion,matrix-method}
+\alias{coerce,MultiCompanion,Matrix-method}
 \alias{coerce,MultiCompanion,dgeMatrix-method}
 \alias{mcStable,MultiCompanion-method}
 \alias{t,MultiCompanion-method}
@@ -137,7 +138,26 @@ Class \code{"Matrix"}, by class \code{"generalMatrix"}.
     \item{[}{\code{signature(x = "MultiCompanion", i = "index", j = "missing", drop = "missing")}: ... }
     \item{[}{\code{signature(x = "MultiCompanion", i = "missing", j = "index", drop = "missing")}: ... }
     \item{\%*\%}{\code{signature(x = "MultiCompanion", y = "vector")}: ... }
-    \item{\%*\%}{\code{signature(x = "vector", y = "MultiCompanion")}: ... }}
+    \item{\%*\%}{\code{signature(x = "vector", y = "MultiCompanion")}: ... }
+    \item{coerce}{\code{signature(from = "MultiCompanion", to = "Matrix")}: ... }
+    \item{coerce<-}{\code{signature(from = "MultiCompanion", to = "Matrix")}: ... }
+    \item{Math}{\code{signature(x = "MultiCompanion")}: ... }
+    \item{Math2}{\code{signature(x = "MultiCompanion")}: ... }
+    \item{Ops}{\code{signature(e1 = "ANY", e2 = "MultiCompanion")}: ... }
+    \item{Ops}{\code{signature(e1 = "complex", e2 = "MultiCompanion")}: ... }
+    \item{Ops}{\code{signature(e1 = "logical", e2 = "MultiCompanion")}: ... }
+    \item{Ops}{\code{signature(e1 = "matrix", e2 = "MultiCompanion")}: ... }
+    \item{Ops}{\code{signature(e1 = "MultiCompanion", e2 = "ANY")}: ... }
+    \item{Ops}{\code{signature(e1 = "MultiCompanion", e2 = "complex")}: ... }
+    \item{Ops}{\code{signature(e1 = "MultiCompanion", e2 = "logical")}: ... }
+    \item{Ops}{\code{signature(e1 = "MultiCompanion", e2 = "matrix")}: ... }
+    \item{Ops}{\code{signature(e1 = "MultiCompanion", e2 = "Matrix")}: ... }
+    \item{Ops}{\code{signature(e1 = "MultiCompanion", e2 = "MultiCompanion")}: ... }
+    \item{Ops}{\code{signature(e1 = "MultiCompanion", e2 = "numeric")}: ... }
+    \item{Ops}{\code{signature(e1 = "MultiCompanion", e2 = "vector")}: ... }
+    \item{Ops}{\code{signature(e1 = "numeric", e2 = "MultiCompanion")}: ... }
+    \item{Ops}{\code{signature(e1 = "vector", e2 = "MultiCompanion")}: ... }
+    \item{Summary}{\code{signature(x = "MultiCompanion")}: ... }}
 }
 \references{%
   \insertRef{boshnakov2002mc}{mcompanion}
@@ -168,26 +188,26 @@ Class \code{"Matrix"}, by class \code{"generalMatrix"}.
 %	or \code{\link{CLASSNAME-class}} for links to other classes
 }
 \examples{
-a1 <- matrix(1:12,nrow=2)
-mc1 <- new("MultiCompanion",xtop=a1)
-new("MultiCompanion",a1)   # same
+a1 <- matrix(1:12, nrow = 2)
+mc1 <- new("MultiCompanion", xtop = a1)
+new("MultiCompanion", a1)   # same
 
-a2 <- matrix(c(1:6,rep(0,4)),nrow=2)   # 1st 3 columns of a2 are non-zero
-mc2 <- new("MultiCompanion",a2)
+a2 <- matrix(c(1:6, rep(0, 4)), nrow = 2)   # 1st 3 columns of a2 are non-zero
+mc2 <- new("MultiCompanion", a2)
 mc2
 mc2@mo.col     # =5, because the default is to set mo.col to ncol
 
-mc2a <- new("MultiCompanion",a2,detect="mo.col")
+mc2a <- new("MultiCompanion", a2, detect = "mo.col")
 mc2a@mo.col   # =3, compare with above
 
-b <- as(mc2,"matrix")  # b is ordinary R matrix
-mcb <- new("MultiCompanion",x=b)
-       new("MultiCompanion",b)   # same as mcb
+b <- as(mc2, "matrix")  # b is ordinary R matrix
+mcb <- new("MultiCompanion", x = b)
+       new("MultiCompanion", b)   # same as mcb
 
 mcb@mo        # 2 (mo detected)
 mcb@mo.col    # 5 (no attempt to detect mo.col)
 
-mcba <- new("MultiCompanion",b,detect="all")
+mcba <- new("MultiCompanion", b, detect = "all")
 mcba@mo        # 2 (mo detected)
 mcba@mo.col    # 3 (mo.col detected)
 }
