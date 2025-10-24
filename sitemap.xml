@@ -1,144 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/404.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/index.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/JordanDecomposition.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/JordanDecompositionDefault-class.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/MultiCompanion-class.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/MultiFilter-class.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/SmallMultiCompanion-class.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/VAR2pcfilter.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/jordan.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mCompanion.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/make_mcev.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/make_mcmatrix.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc.0chain.complete.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc.0chain.dx.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc.0chain.struct.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc.0chain.structfill.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc.non0chain.extend.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mcSpec-class.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mcSpec.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mcStable.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_0chains.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_chain_extend.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_chain_scale.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_chain_subset.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_chains_triangulate.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_eigen.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_factorize.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_factors.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_from_factors.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mc_matrix.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mcompanion-package.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/mf_VSform.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/nullComplement.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/optionalMatrix-class.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/permute_var.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/rblockmult.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/reduce_chains_simple.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/sim_chains.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/sim_mc.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/sim_pcfilter.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/spec_core.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/spec_root0.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/spec_root1.html</loc>
-  </url>
-  <url>
-    <loc>https://geobosh.github.io/mcompanion/reference/spec_seeds1.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://geobosh.github.io/mcompanion/404.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/authors.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/index.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/news/index.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/JordanDecomposition.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/JordanDecompositionDefault-class.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/MultiCompanion-class.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/MultiFilter-class.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/SmallMultiCompanion-class.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/VAR2pcfilter.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/index.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/jordan.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mCompanion.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/make_mcev.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/make_mcmatrix.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc.0chain.complete.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc.0chain.dx.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc.0chain.struct.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc.0chain.structfill.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc.non0chain.extend.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mcSpec-class.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mcSpec.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mcStable.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_0chains.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_chain_extend.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_chain_scale.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_chain_subset.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_chains_triangulate.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_eigen.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_factorize.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_factors.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_from_factors.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mc_matrix.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mcompanion-package.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/mf_VSform.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/nullComplement.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/optionalMatrix-class.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/permute_var.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/rblockmult.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/reduce_chains_simple.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/sim_chains.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/sim_mc.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/sim_pcfilter.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/spec_core.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/spec_root0.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/spec_root1.html</loc></url>
+<url><loc>https://geobosh.github.io/mcompanion/reference/spec_seeds1.html</loc></url>
 </urlset>
+
